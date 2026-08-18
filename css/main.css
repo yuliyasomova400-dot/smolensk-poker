@@ -1,66 +1,608 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   СМОЛЕНСКИЙ ПОКЕР — ОСНОВНОЙ ДИЗАЙН
+   ========================================================= */
 
-    <title>Смоленский Покер</title>
+:root {
+    --green-950: #0b211b;
+    --green-900: #102d25;
+    --green-800: #173b30;
+    --green-700: #285444;
+    --green-600: #356653;
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    --brown-900: #3d2b20;
+    --brown-800: #57402f;
+    --brown-700: #76583f;
+    --brown-600: #8d6b4d;
 
-<body>
+    --cream: #eee8d9;
+    --cream-light: #f7f2e7;
+    --cream-muted: #c9c1af;
 
-    <main class="home">
+    --white: #ffffff;
 
-        <section class="brand">
+    --border-light: rgba(238, 232, 217, 0.16);
+    --border-strong: rgba(238, 232, 217, 0.28);
 
-            <div class="brand-mark">♠</div>
+    --shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28);
 
-            <div class="brand-city">
-                СМОЛЕНСК
-            </div>
-
-            <h1>ПОКЕР</h1>
-
-            <div class="subtitle">
-                TEXAS HOLD'EM
-            </div>
-
-        </section>
-
-
-        <nav class="menu">
-
-            <button class="menu-button primary" id="playButton">
-                <span>ИГРАТЬ</span>
-                <small>Войти за стол</small>
-            </button>
-
-            <button class="menu-button" id="profileButton">
-                <span>ПРОФИЛЬ</span>
-                <small>Ваш игрок</small>
-            </button>
-
-            <button class="menu-button" id="settingsButton">
-                <span>НАСТРОЙКИ</span>
-                <small>Параметры игры</small>
-            </button>
-
-        </nav>
+    --radius: 20px;
+}
 
 
-        <footer>
-            <span>♜</span>
-            <span>Смоленск</span>
-            <span>•</span>
-            <span>Texas Hold'em</span>
-        </footer>
+/* =========================================================
+   RESET
+   ========================================================= */
 
-    </main>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        "Manrope",
+        "Inter",
+        Arial,
+        sans-serif;
+
+    color: var(--cream);
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(53, 102, 83, 0.45),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(118, 88, 63, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            var(--green-800),
+            var(--green-950)
+        );
+
+    overflow-x: hidden;
+}
 
 
-    <script src="js/app.js"></script>
+/* =========================================================
+   ОБЩИЕ ЭЛЕМЕНТЫ
+   ========================================================= */
 
-</body>
-</html>
+button {
+    font: inherit;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--cream);
+    outline-offset: 4px;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   ГЛАВНАЯ СТРАНИЦА
+   ========================================================= */
+
+.home {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px 90px;
+
+    isolation: isolate;
+}
+
+
+/* декоративная текстура */
+
+.home::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -2;
+
+    opacity: 0.08;
+
+    background-image:
+        linear-gradient(
+            135deg,
+            transparent 48%,
+            rgba(255,255,255,0.15) 49%,
+            transparent 50%
+        );
+
+    background-size: 38px 38px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   БРЕНД
+   ========================================================= */
+
+.brand {
+    text-align: center;
+
+    margin-bottom: 52px;
+}
+
+
+.brand-mark {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        var(--border-light);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,0.08);
+
+    font-size: 28px;
+
+    color: var(--cream);
+}
+
+
+.brand-city {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.34em;
+
+    opacity: 0.55;
+}
+
+
+.brand h1 {
+    margin: 0;
+
+    font-size:
+        clamp(54px, 9vw, 94px);
+
+    line-height: 0.92;
+
+    font-weight: 800;
+
+    letter-spacing: -0.07em;
+
+    color: var(--cream);
+}
+
+
+.subtitle {
+    margin-top: 17px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.38em;
+
+    opacity: 0.42;
+}
+
+
+/* =========================================================
+   МЕНЮ
+   ========================================================= */
+
+.menu {
+    width: min(390px, 100%);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.menu-button {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 72px;
+
+    padding: 16px 22px;
+
+    border:
+        1px solid
+        var(--border-light);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: var(--cream);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.menu-button:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255,255,255,0.075);
+
+    border-color:
+        var(--border-strong);
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.18);
+}
+
+
+.menu-button:active {
+    transform: translateY(0);
+}
+
+
+.menu-button span {
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+}
+
+
+.menu-button small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: var(--cream-muted);
+
+    opacity: 0.65;
+}
+
+
+/* главная кнопка */
+
+.menu-button.primary {
+    background:
+        linear-gradient(
+            135deg,
+            var(--cream-light),
+            var(--cream)
+        );
+
+    color: var(--green-900);
+
+    border-color:
+        var(--cream);
+
+    box-shadow:
+        0 12px 32px rgba(0,0,0,0.22);
+}
+
+
+.menu-button.primary small {
+    color: var(--green-700);
+
+    opacity: 0.7;
+}
+
+
+.menu-button.primary:hover {
+    background:
+        var(--cream-light);
+
+    border-color:
+        var(--cream-light);
+
+    box-shadow:
+        0 16px 36px rgba(0,0,0,0.28);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    position: absolute;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--cream);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+
+    opacity: 0.3;
+}
+
+
+/* =========================================================
+   ПОКЕРНЫЙ СТОЛ
+   ========================================================= */
+
+.poker-page {
+    min-height: 100vh;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #285444 0%,
+            #173b30 48%,
+            #0b211b 100%
+        );
+}
+
+
+.poker-table {
+    position: relative;
+
+    width: min(1100px, 92vw);
+
+    aspect-ratio: 1.75 / 1;
+
+    margin: 0 auto;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #356653 0%,
+            #285444 55%,
+            #173b30 100%
+        );
+
+    border:
+        28px solid var(--brown-700);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.38),
+        inset 0 0 0 2px rgba(255,255,255,0.06),
+        inset 0 0 80px rgba(0,0,0,0.25);
+}
+
+
+.poker-table::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 18px;
+
+    border:
+        1px solid
+        rgba(238,232,217,0.14);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ИГРОК
+   ========================================================= */
+
+.player {
+    position: absolute;
+
+    width: 150px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        var(--border-light);
+
+    border-radius: 16px;
+
+    background:
+        rgba(11,33,27,0.78);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.2);
+}
+
+
+.player-avatar {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--brown-700);
+
+    color: var(--cream);
+
+    font-weight: 800;
+}
+
+
+.player-name {
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.player-stack {
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    color: var(--cream-muted);
+}
+
+
+/* =========================================================
+   КАРТЫ
+   ========================================================= */
+
+.card {
+    width: 70px;
+    aspect-ratio: 2 / 3;
+
+    border-radius: 9px;
+
+    background:
+        var(--cream-light);
+
+    color: #241c16;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,0.28);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+
+    user-select: none;
+}
+
+
+.card.red {
+    color: #8b332d;
+}
+
+
+.card-back {
+    background:
+        linear-gradient(
+            135deg,
+            var(--brown-800),
+            var(--brown-900)
+        );
+
+    border:
+        5px solid var(--cream);
+
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .home {
+        padding-top: 35px;
+    }
+
+    .brand {
+        margin-bottom: 38px;
+    }
+
+    .brand h1 {
+        font-size: 58px;
+    }
+
+    .menu {
+        width: min(360px, 100%);
+    }
+
+    .poker-page {
+        padding: 10px;
+    }
+
+    .poker-table {
+        width: 96vw;
+
+        border-width: 14px;
+    }
+
+    .player {
+        width: 105px;
+
+        padding: 8px;
+    }
+
+    .player-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .card {
+        width: 48px;
+    }
+}
