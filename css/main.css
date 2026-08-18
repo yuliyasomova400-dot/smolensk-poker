@@ -1,2 +1,66 @@
-/* Смоленский Покер — основной стиль */
-/* Сюда переносим CSS из index.html поэтапно. */
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Смоленский Покер</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="home">
+
+        <section class="brand">
+
+            <div class="brand-mark">♠</div>
+
+            <div class="brand-city">
+                СМОЛЕНСК
+            </div>
+
+            <h1>ПОКЕР</h1>
+
+            <div class="subtitle">
+                TEXAS HOLD'EM
+            </div>
+
+        </section>
+
+
+        <nav class="menu">
+
+            <button class="menu-button primary" id="playButton">
+                <span>ИГРАТЬ</span>
+                <small>Войти за стол</small>
+            </button>
+
+            <button class="menu-button" id="profileButton">
+                <span>ПРОФИЛЬ</span>
+                <small>Ваш игрок</small>
+            </button>
+
+            <button class="menu-button" id="settingsButton">
+                <span>НАСТРОЙКИ</span>
+                <small>Параметры игры</small>
+            </button>
+
+        </nav>
+
+
+        <footer>
+            <span>♜</span>
+            <span>Смоленск</span>
+            <span>•</span>
+            <span>Texas Hold'em</span>
+        </footer>
+
+    </main>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
