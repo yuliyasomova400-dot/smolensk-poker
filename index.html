@@ -6,61 +6,286 @@
 
     <title>Смоленский Покер</title>
 
-    <link rel="stylesheet" href="css/main.css?v=2">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #0b211b;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .home {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+
+            background-image: url("images/home.png");
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Кнопка ИГРАТЬ */
+
+        #playButton {
+            position: absolute;
+
+            left: 9%;
+            top: 45.5%;
+
+            width: 30%;
+            height: 9%;
+
+            border: 0;
+            border-radius: 28px;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        #playButton:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        /* Нижние кнопки */
+
+        #ratingButton {
+            position: absolute;
+
+            left: 9%;
+            top: 56.5%;
+
+            width: 17%;
+            height: 15%;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        #profileButton {
+            position: absolute;
+
+            left: 34%;
+            top: 56.5%;
+
+            width: 17%;
+            height: 15%;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        #avatarButton {
+            position: absolute;
+
+            left: 59%;
+            top: 56.5%;
+
+            width: 17%;
+            height: 15%;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        #settingsButton {
+            position: absolute;
+
+            left: 9%;
+            top: 73.5%;
+
+            width: 17%;
+            height: 15%;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        #rulesButton {
+            position: absolute;
+
+            left: 34%;
+            top: 73.5%;
+
+            width: 17%;
+            height: 15%;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        #newsButton {
+            position: absolute;
+
+            left: 59%;
+            top: 73.5%;
+
+            width: 17%;
+            height: 15%;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            color: transparent;
+        }
+
+        button:hover {
+            background: rgba(255,255,255,0.05);
+            border-radius: 25px;
+        }
+
+        @media (max-width: 700px) {
+
+            .home {
+                min-height: 100vh;
+                background-size: auto 100vh;
+                background-position: top center;
+            }
+
+            #playButton {
+                left: 9%;
+                top: 45.5%;
+                width: 82%;
+                height: 9%;
+            }
+
+            #ratingButton,
+            #profileButton,
+            #avatarButton,
+            #settingsButton,
+            #rulesButton,
+            #newsButton {
+                width: 25%;
+                height: 15%;
+            }
+
+            #ratingButton {
+                left: 9%;
+            }
+
+            #profileButton {
+                left: 37.5%;
+            }
+
+            #avatarButton {
+                left: 66%;
+            }
+
+            #settingsButton {
+                left: 9%;
+            }
+
+            #rulesButton {
+                left: 37.5%;
+            }
+
+            #newsButton {
+                left: 66%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <main class="home">
 
-        <section class="brand">
+        <button id="playButton" aria-label="Играть">
+            Играть
+        </button>
 
-            <div class="brand-mark">♠</div>
+        <button id="ratingButton" aria-label="Рейтинг">
+            Рейтинг
+        </button>
 
-            <div class="brand-city">
-                СМОЛЕНСК
-            </div>
+        <button id="profileButton" aria-label="Профиль">
+            Профиль
+        </button>
 
-            <h1>ПОКЕР</h1>
+        <button id="avatarButton" aria-label="Аватар">
+            Аватар
+        </button>
 
-            <div class="subtitle">
-                TEXAS HOLD'EM
-            </div>
+        <button id="settingsButton" aria-label="Настройки">
+            Настройки
+        </button>
 
-        </section>
+        <button id="rulesButton" aria-label="Правила">
+            Правила
+        </button>
 
-
-        <nav class="menu">
-
-            <button class="menu-button primary" id="playButton">
-                <span>ИГРАТЬ</span>
-                <small>Войти за стол</small>
-            </button>
-
-            <button class="menu-button" id="profileButton">
-                <span>ПРОФИЛЬ</span>
-                <small>Ваш игрок</small>
-            </button>
-
-            <button class="menu-button" id="settingsButton">
-                <span>НАСТРОЙКИ</span>
-                <small>Параметры игры</small>
-            </button>
-
-        </nav>
-
-
-        <footer>
-            <span>♜</span>
-            <span>Смоленск</span>
-            <span>•</span>
-            <span>Texas Hold'em</span>
-        </footer>
+        <button id="newsButton" aria-label="Новости">
+            Новости
+        </button>
 
     </main>
 
+    <script>
 
-    <script src="js/app.js"></script>
+        document.getElementById("playButton").onclick = function () {
+            window.location.href = "table.html";
+        };
+
+        document.getElementById("ratingButton").onclick = function () {
+            alert("Рейтинг — скоро");
+        };
+
+        document.getElementById("profileButton").onclick = function () {
+            alert("Профиль — скоро");
+        };
+
+        document.getElementById("avatarButton").onclick = function () {
+            alert("Аватар — скоро");
+        };
+
+        document.getElementById("settingsButton").onclick = function () {
+            alert("Настройки — скоро");
+        };
+
+        document.getElementById("rulesButton").onclick = function () {
+            alert("Правила — скоро");
+        };
+
+        document.getElementById("newsButton").onclick = function () {
+            alert("Новости — скоро");
+        };
+
+    </script>
 
 </body>
 </html>
