@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Войти — Смоленский Покер</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <div class="login-card">
+
+            <div class="login-spade">♠</div>
+
+            <h1>ВОЙТИ</h1>
+
+            <div class="login-subtitle">
+                Смоленский Покер
+            </div>
+
+
+            <form id="loginForm">
+
+                <div class="input-box">
+                    <span class="input-icon">♙</span>
+
+                    <input
+                        type="text"
+                        id="login"
+                        placeholder="Электронная почта / телефон"
+                        autocomplete="username"
+                    >
+                </div>
+
+
+                <div class="input-box">
+
+                    <span class="input-icon">♙</span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Пароль"
+                        autocomplete="current-password"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-eye"
+                        id="showPassword"
+                        aria-label="Показать пароль"
+                    >
+                        ◉
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    ВОЙТИ
+                </button>
+
+            </form>
+
+
+            <button
+                type="button"
+                class="forgot-button"
+                id="forgotButton"
+            >
+                Забыли пароль?
+            </button>
+
+
+            <div class="or">
+
+                <span></span>
+
+                <b>ИЛИ</b>
+
+                <span></span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="register-button"
+                id="registerButton"
+            >
+
+                <div class="register-icon">
+                    ♙+
+                </div>
+
+                <div class="register-small">
+                    НЕТ АККАУНТА?
+                </div>
+
+                <div class="register-title">
+                    ЗАРЕГИСТРИРОВАТЬСЯ
+                </div>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="back-button"
+                id="backButton"
+            >
+                ← &nbsp; НАЗАД
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
