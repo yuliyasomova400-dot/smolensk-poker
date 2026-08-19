@@ -2,136 +2,72 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Смоленский Покер</title>
-
     <style>
         * { box-sizing: border-box; }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-            background: #0b211b;
-        }
-
-        body {
-            overflow-x: hidden;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Делаем высоту страницы равной пропорциям исходной картинки.
-           Поэтому кнопки всегда находятся точно на своих местах. */
+        html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; background:#0b211b; }
+        body { overflow-x:hidden; font-family:Arial,sans-serif; }
         .home {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 736 / 1308;
-            background-image: url("images/home.png");
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
+            position:relative;
+            width:100%;
+            aspect-ratio:736 / 1308;
+            background:url("images/home.png") top center / 100% 100% no-repeat;
         }
 
-        /* =====================================================
-           КНОПКА «ВОЙТИ»
-           Реальная HTML-ссылка, не JavaScript.
-           Координаты соответствуют кнопке на home.png.
-           ===================================================== */
+        /* ВОЙТИ — увеличенная область нажатия вокруг самой кнопки на картинке */
         .login-link {
-            position: absolute;
-            left: 73.5%;
-            top: 4.1%;
-            width: 22%;
-            height: 5.0%;
-            display: block;
-            z-index: 1000;
-            cursor: pointer;
-            text-decoration: none;
-            background: transparent;
-            border: 2px solid transparent;
-            border-radius: 999px;
-            transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
+            position:absolute;
+            left:70%;
+            top:3%;
+            width:28%;
+            height:8%;
+            z-index:999999;
+            display:block;
+            cursor:pointer;
+            pointer-events:auto;
+            touch-action:manipulation;
+            -webkit-tap-highlight-color:rgba(238,232,217,.25);
+            text-decoration:none;
+            background:transparent;
+            border:2px solid transparent;
+            border-radius:999px;
+            transition:.15s ease;
         }
-
-        .login-link:hover {
-            background: rgba(238, 232, 217, 0.10);
-            border-color: rgba(238, 232, 217, 0.55);
-            box-shadow: 0 0 0 3px rgba(238, 232, 217, 0.08), 0 8px 25px rgba(0,0,0,.20);
+        .login-link:hover,
+        .login-link:focus-visible {
+            background:rgba(238,232,217,.12);
+            border-color:rgba(238,232,217,.65);
+            box-shadow:0 0 0 3px rgba(238,232,217,.08),0 8px 25px rgba(0,0,0,.2);
+            outline:none;
         }
-
         .login-link:active {
-            background: rgba(238, 232, 217, 0.18);
-            transform: scale(.985);
+            background:rgba(238,232,217,.2);
+            transform:scale(.98);
         }
 
-        /* Нижние кнопки пока оставляем как зоны для будущих экранов. */
         .menu-link {
-            position: absolute;
-            z-index: 900;
-            display: block;
-            cursor: pointer;
-            text-decoration: none;
-            color: transparent;
-            background: transparent;
-            border: 2px solid transparent;
-            transition: background .15s ease, border-color .15s ease;
+            position:absolute;
+            z-index:900;
+            display:block;
+            cursor:pointer;
+            text-decoration:none;
+            color:transparent;
+            background:transparent;
+            border:2px solid transparent;
         }
-
-        #ratingButton {
-            left: 8.5%;
-            top: 57.2%;
-            width: 26%;
-            height: 14.5%;
-        }
-
-        #profileButton {
-            left: 37%;
-            top: 57.2%;
-            width: 26%;
-            height: 14.5%;
-        }
-
-        #avatarButton {
-            left: 65.5%;
-            top: 57.2%;
-            width: 26%;
-            height: 14.5%;
-        }
-
-        #settingsButton {
-            left: 8.5%;
-            top: 74.0%;
-            width: 26%;
-            height: 14.5%;
-        }
-
-        #rulesButton {
-            left: 37%;
-            top: 74.0%;
-            width: 26%;
-            height: 14.5%;
-        }
-
-        #newsButton {
-            left: 65.5%;
-            top: 74.0%;
-            width: 26%;
-            height: 14.5%;
-        }
-
-        .menu-link:hover {
-            background: rgba(238, 232, 217, 0.06);
-            border-color: rgba(238, 232, 217, 0.20);
-            border-radius: 22px;
-        }
+        #ratingButton {left:8.5%;top:57.2%;width:26%;height:14.5%;}
+        #profileButton {left:37%;top:57.2%;width:26%;height:14.5%;}
+        #avatarButton {left:65.5%;top:57.2%;width:26%;height:14.5%;}
+        #settingsButton {left:8.5%;top:74%;width:26%;height:14.5%;}
+        #rulesButton {left:37%;top:74%;width:26%;height:14.5%;}
+        #newsButton {left:65.5%;top:74%;width:26%;height:14.5%;}
+        .menu-link:hover {background:rgba(238,232,217,.06);border-color:rgba(238,232,217,.2);border-radius:22px;}
     </style>
 </head>
-
 <body>
     <main class="home">
-        <a class="login-link" href="login.html" aria-label="Войти"></a>
-
+        <a class="login-link" href="./login.html" aria-label="Войти"></a>
         <a class="menu-link" id="ratingButton" href="#" aria-label="Рейтинг"></a>
         <a class="menu-link" id="profileButton" href="#" aria-label="Профиль"></a>
         <a class="menu-link" id="avatarButton" href="#" aria-label="Аватар"></a>
