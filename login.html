@@ -7,7 +7,7 @@
 
     <title>Войти — Смоленский Покер</title>
 
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login.css?v=20260819-2">
 </head>
 
 <body>
@@ -17,116 +17,41 @@
         <div class="login-card">
 
             <div class="login-spade">♠</div>
-
             <h1>ВОЙТИ</h1>
-
-            <div class="login-subtitle">
-                Смоленский Покер
-            </div>
-
+            <div class="login-subtitle">Смоленский Покер</div>
 
             <form id="loginForm">
+                <div class="input-box">
+                    <span class="input-icon">♙</span>
+                    <input type="text" id="login" placeholder="Электронная почта / телефон" autocomplete="username">
+                </div>
 
                 <div class="input-box">
                     <span class="input-icon">♙</span>
-
-                    <input
-                        type="text"
-                        id="login"
-                        placeholder="Электронная почта / телефон"
-                        autocomplete="username"
-                    >
+                    <input type="password" id="password" placeholder="Пароль" autocomplete="current-password">
+                    <button type="button" class="password-eye" id="showPassword" aria-label="Показать пароль">◉</button>
                 </div>
 
-
-                <div class="input-box">
-
-                    <span class="input-icon">♙</span>
-
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Пароль"
-                        autocomplete="current-password"
-                    >
-
-                    <button
-                        type="button"
-                        class="password-eye"
-                        id="showPassword"
-                        aria-label="Показать пароль"
-                    >
-                        ◉
-                    </button>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="login-button"
-                >
-                    ВОЙТИ
-                </button>
-
+                <button type="submit" class="login-button">ВОЙТИ</button>
             </form>
 
+            <button type="button" class="forgot-button" id="forgotButton">Забыли пароль?</button>
 
-            <button
-                type="button"
-                class="forgot-button"
-                id="forgotButton"
-            >
-                Забыли пароль?
+            <div class="or"><span></span><b>ИЛИ</b><span></span></div>
+
+            <button type="button" class="register-button" id="registerButton">
+                <div class="register-icon">♙+</div>
+                <div class="register-small">НЕТ АККАУНТА?</div>
+                <div class="register-title">ЗАРЕГИСТРИРОВАТЬСЯ</div>
             </button>
 
-
-            <div class="or">
-
-                <span></span>
-
-                <b>ИЛИ</b>
-
-                <span></span>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="register-button"
-                id="registerButton"
-            >
-
-                <div class="register-icon">
-                    ♙+
-                </div>
-
-                <div class="register-small">
-                    НЕТ АККАУНТА?
-                </div>
-
-                <div class="register-title">
-                    ЗАРЕГИСТРИРОВАТЬСЯ
-                </div>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="back-button"
-                id="backButton"
-            >
-                ← &nbsp; НАЗАД
-            </button>
+            <button type="button" class="back-button" id="backButton">← &nbsp; НАЗАД</button>
 
         </div>
 
     </main>
 
-
-    <script src="js/login.js"></script>
+    <script src="js/login.js?v=20260819-2"></script>
 
 </body>
 
