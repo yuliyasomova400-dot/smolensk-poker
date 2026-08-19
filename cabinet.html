@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Смоленский Покер</title>
+<link rel="stylesheet" href="css/login.css?v=20260819-15">
+<style>
+.cabinet-card{text-align:center;padding-top:38px}.cabinet-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px;color:#eee5d2;font-size:22px;letter-spacing:2px}.cabinet-brand .brand-spade{font-size:42px}.welcome{font-size:28px;letter-spacing:3px;margin-bottom:34px;color:#eee5d2}.avatar{width:112px;height:112px;margin:0 auto 20px;border:1px solid #9b8b68;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0a211e;color:#c5b38b;font-size:46px}.nickname{font-size:25px;letter-spacing:2px;color:#eee5d2}.rating{margin-top:8px;color:#c5b38b;font-size:17px}.play-button{width:100%;height:78px;margin-top:44px;border:1px solid #aaa486;border-radius:18px;background:linear-gradient(145deg,#526252,#34473b);color:#eee5d2;font-size:25px;letter-spacing:4px;cursor:pointer}.cabinet-link{display:block;margin:28px auto 0;padding:8px 16px;border:0;background:transparent;color:#c5b38b;font-size:18px;letter-spacing:1px;cursor:pointer}.logout{margin-top:18px;color:#bda9a0}.cabinet-status{min-height:20px;margin-top:16px;color:#d9a29a;font-size:14px}@media(max-width:600px){.cabinet-card{padding-top:30px}.cabinet-brand{margin-bottom:38px;font-size:18px}.welcome{font-size:23px}.avatar{width:100px;height:100px}.play-button{margin-top:36px}}
+</style>
+</head>
+<body>
+<main class="login-page"><section class="login-card cabinet-card">
+<div class="cabinet-brand"><span class="brand-spade">♠</span><span>СМОЛЕНСКИЙ ПОКЕР</span></div>
+<div class="welcome">ДОБРО ПОЖАЛОВАТЬ</div>
+<div class="avatar" id="avatar">♙</div>
+<div class="nickname" id="nickname">Игрок</div>
+<div class="rating">рейтинг: <strong id="rating">1000</strong></div>
+<button class="play-button" id="playButton">ИГРАТЬ</button>
+<button class="cabinet-link" id="settingsButton">НАСТРОЙКИ</button>
+<div class="cabinet-status" id="status"></div>
+<button class="cabinet-link logout" id="logoutButton">ВЫЙТИ</button>
+</section></main>
+<script type="module">
+import { supabase } from './js/supabase.js';
+const nickname=document.getElementById('nickname'),rating=document.getElementById('rating'),status=document.getElementById('status');
+const {data:{user}}=await supabase.auth.getUser();
+if(!user){window.location.href='login.html';}
+else{
+ const {data:profile}=await supabase.from('profiles').select('nickname,rating').eq('id',user.id).maybeSingle();
+ if(profile){nickname.textContent=profile.nickname||'Игрок';rating.textContent=profile.rating??1000;}
+ else {nickname.textContent=user.user_metadata?.nickname||user.email?.split('@')[0]||'Игрок';}
+}
+document.getElementById('logoutButton').addEventListener('click',async()=>{await supabase.auth.signOut();window.location.href='login.html';});
+document.getElementById('playButton').addEventListener('click',()=>{status.textContent='Покерное лобби подключим следующим шагом.';});
+document.getElementById('settingsButton').addEventListener('click',()=>{status.textContent='Настройки игрока подключим следующим шагом.';});
+</script>
+</body>
+</html>
