@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Стол — Смоленский Покер</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#041811;font-family:Arial,Helvetica,sans-serif;color:#eee5d2}.table-page{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#041811}.table-art{width:100%;height:100%;object-fit:contain;display:block}.topbar{position:absolute;left:24px;top:20px;display:flex;align-items:center;gap:12px}.back-btn,.info-btn{border:1px solid #9b8b68;background:rgba(7,29,22,.9);color:#e8d9a8;border-radius:14px;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.3)}.back-btn{width:52px;height:46px;font-size:25px}.table-info{padding:9px 15px;border:1px solid rgba(155,139,104,.65);border-radius:12px;background:rgba(7,29,22,.84);font-size:14px;letter-spacing:1px}.actions{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:10px;align-items:center}.action{min-width:105px;height:54px;border-radius:14px;border:1px solid #9b8b68;background:rgba(9,39,29,.96);color:#eee5d2;font-size:17px;letter-spacing:1px;cursor:pointer}.action:hover{background:#526252}.action.fold{border-color:#8b665d}.action.call{border-color:#718b6d}.action.raise{background:linear-gradient(145deg,#526252,#34473b)}.status{position:absolute;left:50%;bottom:86px;transform:translateX(-50%);min-width:260px;text-align:center;padding:8px 14px;border-radius:10px;background:rgba(3,18,13,.86);color:#c5b38b;font-size:13px;opacity:0;transition:.2s}.status.show{opacity:1}@media(max-width:700px){.topbar{left:10px;top:10px}.table-info{display:none}.back-btn{width:46px;height:42px}.actions{bottom:8px;gap:6px;width:calc(100% - 16px)}.action{flex:1;min-width:0;height:50px;padding:0 4px;font-size:13px}.status{bottom:70px;min-width:220px}.table-art{object-fit:cover;height:100%;width:100%}}
+</style>
+</head>
+<body>
+<main class="table-page">
+<img class="table-art" src="table.svg" alt="Игровой стол Смоленский Покер">
+<div class="topbar"><button class="back-btn" id="backBtn" aria-label="Назад">←</button><div class="table-info">СТОЛ №1 · TEXAS HOLD'EM</div></div>
+<div class="actions"><button class="action fold" id="fold">ФОЛД</button><button class="action" id="check">ЧЕК</button><button class="action call" id="call">КОЛЛ</button><button class="action raise" id="raise">РЕЙЗ</button></div>
+<div class="status" id="status"></div>
+</main>
+<script>
+const status=document.getElementById('status');
+function msg(t){status.textContent=t;status.classList.add('show');clearTimeout(window.__t);window.__t=setTimeout(()=>status.classList.remove('show'),1300)}
+document.getElementById('backBtn').onclick=()=>location.href='cabinet.html';
+document.getElementById('fold').onclick=()=>msg('ФОЛД — игровая логика подключим следующим шагом');
+document.getElementById('check').onclick=()=>msg('ЧЕК — игровая логика подключим следующим шагом');
+document.getElementById('call').onclick=()=>msg('КОЛЛ — игровая логика подключим следующим шагом');
+document.getElementById('raise').onclick=()=>msg('РЕЙЗ — игровая логика подключим следующим шагом');
+</script>
+</body>
+</html>
