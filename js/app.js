@@ -1,5 +1,5 @@
 // =====================================================
-// СМОЛЕНСКИЙ ПОКЕР — ЗВУКИ КНОПОК
+// СМОЛЕНСКИЙ ПОКЕР — ЛОГИКА ГЛАВНОЙ СТРАНИЦЫ
 // =====================================================
 
 let audioContext = null;
@@ -42,11 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", playClick);
     });
 
+    // ИГРАТЬ → покерный стол
     const playButton = document.getElementById("playButton");
     if (playButton) {
         playButton.addEventListener("click", () => {
             setTimeout(() => {
                 window.location.href = "table.html";
+            }, 150);
+        });
+    }
+
+    // ВОЙТИ → страница авторизации
+    const loginButton = document.getElementById("loginButton");
+    if (loginButton) {
+        loginButton.addEventListener("click", () => {
+            setTimeout(() => {
+                window.location.href = "login.html";
             }, 150);
         });
     }
