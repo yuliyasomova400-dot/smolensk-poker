@@ -67,11 +67,14 @@ body { font-family: Arial, sans-serif; }
     -webkit-appearance: none;
     appearance: none;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
-/* Текст с картинки исчезает только после начала ввода.
-   Пустое поле остаётся полностью таким, как на исходной картинке. */
+/*
+   Текст-подсказка уже нарисован внутри login.png.
+   Этот слой закрывает именно нарисованный текст, когда поле активно
+   или в нём уже есть введённое значение. Сам ввод находится выше слоя.
+*/
 .input-box.has-value::before,
 .input-box:focus-within::before {
     content: "";
@@ -81,8 +84,8 @@ body { font-family: Arial, sans-serif; }
     top: 7%;
     bottom: 7%;
     border-radius: 6px;
-    background: rgba(7, 29, 24, 0.94);
-    z-index: 1;
+    background: rgba(7, 29, 24, 0.96);
+    z-index: 2;
     pointer-events: none;
 }
 
@@ -100,7 +103,7 @@ body { font-family: Arial, sans-serif; }
     border: 0;
     background: transparent;
     cursor: pointer;
-    z-index: 3;
+    z-index: 4;
 }
 
 .login-button {
