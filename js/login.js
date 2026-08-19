@@ -12,23 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerButton = document.getElementById("registerButton");
     const backButton = document.getElementById("backButton");
 
-    // Убираем нарисованный на фоне текст поля, когда пользователь начинает вводить.
-    function updateInputState(input) {
-        if (!input || !input.parentElement) return;
-        input.parentElement.classList.toggle("has-value", input.value.length > 0);
-    }
-
-    [login, password].forEach(function (input) {
-        if (!input) return;
-        input.addEventListener("input", function () {
-            updateInputState(input);
-        });
-        input.addEventListener("change", function () {
-            updateInputState(input);
-        });
-        updateInputState(input);
-    });
-
     // Показать / скрыть пароль
     if (showPassword && password) {
         showPassword.addEventListener("click", function () {
