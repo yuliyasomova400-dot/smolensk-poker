@@ -1,14 +1,10 @@
 // =====================================================
-// СМОЛЕНСКИЙ ПОКЕР — ЗВУКИ И КНОПКИ
+// СМОЛЕНСКИЙ ПОКЕР — ЗВУКИ КНОПОК
 // =====================================================
-
-const clickSound = new Audio("./sounds/click.mp3");
-clickSound.preload = "auto";
-clickSound.volume = 0.55;
 
 let audioContext = null;
 
-function fallbackClick() {
+function playClick() {
     try {
         if (!audioContext) {
             audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -18,108 +14,56 @@ function fallbackClick() {
             audioContext.resume();
         }
 
+        const now = audioContext.currentTime;
         const oscillator = audioContext.createOscillator();
         const gain = audioContext.createGain();
 
-        oscillator.type = "sine";
-        oscillator.frequency.setValueAtTime(620, audioContext.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(
-            420,
-            audioContext.currentTime + 0.06
-        );
+        oscillator.type = "triangle";
+        oscillator.frequency.setValueAtTime(720, now);
+        oscillator.frequency.exponentialRampToValueAtTime(360, now + 0.055);
 
-        gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-        gain.gain.exponentialRampToValueAtTime(
-            0.12,
-            audioContext.currentTime + 0.005
-        );
-        gain.gain.exponentialRampToValueAtTime(
-            0.0001,
-            audioContext.currentTime + 0.07
-        );
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.16, now + 0.004);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.065);
 
         oscillator.connect(gain);
         gain.connect(audioContext.destination);
 
-        oscillator.start();
-        oscillator.stop(audioContext.currentTime + 0.08);
+        oscillator.start(now);
+        oscillator.stop(now + 0.07);
     } catch (error) {
-        console.log("Звук недоступен:", error);
+        console.error("Не удалось воспроизвести звук:", error);
     }
 }
-
-function playClick() {
-    clickSound.currentTime = 0;
-
-    const promise = clickSound.play();
-
-    if (promise !== undefined) {
-        promise.catch(() => {
-            fallbackClick();
-        });
-    }
-}
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const buttons = document.querySelectorAll("button");
-
-    buttons.forEach(button => {
+    document.querySelectorAll("button").forEach(button => {
         button.addEventListener("click", playClick);
     });
 
-    // Кнопка ИГРАТЬ
     const playButton = document.getElementById("playButton");
-
     if (playButton) {
         playButton.addEventListener("click", () => {
             setTimeout(() => {
                 window.location.href = "table.html";
-            }, 180);
+            }, 150);
         });
     }
 
-    // Остальные кнопки
-    const ratingButton = document.getElementById("ratingButton");
-    if (ratingButton) {
-        ratingButton.addEventListener("click", () => {
-            alert("Рейтинг — скоро");
-        });
-    }
+    const messages = {
+        ratingButton: "Рейтинг — скоро",
+        profileButton: "Профиль — скоро",
+        avatarButton: "Аватар — скоро",
+        settingsButton: "Настройки — скоро",
+        rulesButton: "Правила — скоро",
+        newsButton: "Новости — скоро"
+    };
 
-    const profileButton = document.getElementById("profileButton");
-    if (profileButton) {
-        profileButton.addEventListener("click", () => {
-            alert("Профиль — скоро");
-        });
-    }
-
-    const avatarButton = document.getElementById("avatarButton");
-    if (avatarButton) {
-        avatarButton.addEventListener("click", () => {
-            alert("Аватар — скоро");
-        });
-    }
-
-    const settingsButton = document.getElementById("settingsButton");
-    if (settingsButton) {
-        settingsButton.addEventListener("click", () => {
-            alert("Настройки — скоро");
-        });
-    }
-
-    const rulesButton = document.getElementById("rulesButton");
-    if (rulesButton) {
-        rulesButton.addEventListener("click", () => {
-            alert("Правила — скоро");
-        });
-    }
-
-    const newsButton = document.getElementById("newsButton");
-    if (newsButton) {
-        newsButton.addEventListener("click", () => {
-            alert("Новости — скоро");
-        });
-    }
+    Object.entries(messages).forEach(([id, message]) => {
+        const button = document.getElementById(id);
+        if (button) {
+            button.addEventListener("click", () => alert(message));
+        }
+    });
 });
