@@ -30,78 +30,48 @@
             background-size: cover;
         }
 
-        button {
+        /* Настоящая ссылка вместо невидимой кнопки */
+        .login-link {
             position: absolute;
-            z-index: 9999;
-            display: block;
-            border: 0;
-            background: transparent;
-            cursor: pointer;
-            color: transparent;
-            pointer-events: auto;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        #loginButton {
             left: 9%;
             top: 45.5%;
-            width: 30%;
+            width: 82%;
             height: 9%;
+            display: block;
+            z-index: 99999;
+            cursor: pointer;
+            text-decoration: none;
+            color: transparent;
+            background: transparent;
+        }
+
+        .login-link:hover {
+            background: rgba(255,255,255,0.06);
             border-radius: 28px;
         }
 
-        #ratingButton,
-        #profileButton,
-        #avatarButton,
-        #settingsButton,
-        #rulesButton,
-        #newsButton {
-            width: 17%;
+        .menu-link {
+            position: absolute;
+            z-index: 99999;
+            width: 25%;
             height: 15%;
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+            color: transparent;
+            background: transparent;
         }
 
         #ratingButton { left: 9%; top: 56.5%; }
-        #profileButton { left: 34%; top: 56.5%; }
-        #avatarButton { left: 59%; top: 56.5%; }
+        #profileButton { left: 37.5%; top: 56.5%; }
+        #avatarButton { left: 66%; top: 56.5%; }
         #settingsButton { left: 9%; top: 73.5%; }
-        #rulesButton { left: 34%; top: 73.5%; }
-        #newsButton { left: 59%; top: 73.5%; }
+        #rulesButton { left: 37.5%; top: 73.5%; }
+        #newsButton { left: 66%; top: 73.5%; }
 
-        button:hover {
+        .menu-link:hover {
             background: rgba(255,255,255,0.05);
             border-radius: 25px;
-        }
-
-        @media (max-width: 700px) {
-            .home {
-                min-height: 100vh;
-                background-size: auto 100vh;
-                background-position: top center;
-            }
-
-            #loginButton {
-                left: 9%;
-                top: 45.5%;
-                width: 82%;
-                height: 9%;
-            }
-
-            #ratingButton,
-            #profileButton,
-            #avatarButton,
-            #settingsButton,
-            #rulesButton,
-            #newsButton {
-                width: 25%;
-                height: 15%;
-            }
-
-            #ratingButton { left: 9%; }
-            #profileButton { left: 37.5%; }
-            #avatarButton { left: 66%; }
-            #settingsButton { left: 9%; }
-            #rulesButton { left: 37.5%; }
-            #newsButton { left: 66%; }
         }
     </style>
 </head>
@@ -110,14 +80,14 @@
 
     <main class="home">
 
-        <button id="loginButton" aria-label="Войти" onclick="window.location.href='login.html'">Войти</button>
+        <a class="login-link" href="login.html" aria-label="Войти"></a>
 
-        <button id="ratingButton" aria-label="Рейтинг">Рейтинг</button>
-        <button id="profileButton" aria-label="Профиль">Профиль</button>
-        <button id="avatarButton" aria-label="Аватар">Аватар</button>
-        <button id="settingsButton" aria-label="Настройки">Настройки</button>
-        <button id="rulesButton" aria-label="Правила">Правила</button>
-        <button id="newsButton" aria-label="Новости">Новости</button>
+        <a class="menu-link" id="ratingButton" href="#" aria-label="Рейтинг"></a>
+        <a class="menu-link" id="profileButton" href="#" aria-label="Профиль"></a>
+        <a class="menu-link" id="avatarButton" href="#" aria-label="Аватар"></a>
+        <a class="menu-link" id="settingsButton" href="#" aria-label="Настройки"></a>
+        <a class="menu-link" id="rulesButton" href="#" aria-label="Правила"></a>
+        <a class="menu-link" id="newsButton" href="#" aria-label="Новости"></a>
 
     </main>
 
