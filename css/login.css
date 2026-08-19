@@ -1,13 +1,6 @@
-/* =========================================================
-   СМОЛЕНСКИЙ ПОКЕР — ВХОД
-   images/login.png содержит готовый дизайн.
-   HTML — только интерактивный слой + маски старых дублей.
-   ========================================================= */
-
-:root {
-    --cream: #eee5d2;
-    --mask: rgba(5, 24, 20, 0.88);
-}
+/* СМОЛЕНСКИЙ ПОКЕР — ВХОД
+   Весь внешний дизайн находится в images/login.png.
+   HTML содержит только невидимые интерактивные зоны. */
 
 * { box-sizing: border-box; }
 
@@ -31,139 +24,41 @@ body { font-family: Arial, sans-serif; }
     background: url("../images/login.png") center center / 100% 100% no-repeat;
 }
 
-.login-card {
+.interaction-layer {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    display: block;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
 }
 
-#loginForm {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-/* ---------------------------------------------------------
-   МАСКИ.
-   В самой login.png остались старые полупрозрачные копии
-   надписей. Закрываем только эти зоны, не создавая новых
-   элементов дизайна.
-   --------------------------------------------------------- */
-.login-spade,
-.login-card h1,
-.login-subtitle,
-.forgot-button,
-.or,
-.register-button,
-.back-button {
-    position: absolute;
-    z-index: 5;
-    display: block;
-    opacity: 1;
-    pointer-events: none;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: var(--mask);
-    color: transparent;
-    font-size: 0;
-    line-height: 0;
-}
-
-/* отражение «ВОЙТИ» под заголовком */
-.login-card h1 {
-    left: 27%;
-    top: 22.2%;
-    width: 46%;
-    height: 6.2%;
-}
-
-/* отражение «Смоленский Покер» */
-.login-subtitle {
-    left: 24%;
-    top: 29.0%;
-    width: 52%;
-    height: 5.0%;
-}
-
-/* старые дубли в нижней части */
-.forgot-button {
-    left: 17%;
-    top: 68.0%;
-    width: 66%;
-    height: 5.0%;
-}
-
-.or {
-    left: 25%;
-    top: 76.0%;
-    width: 50%;
-    height: 5.0%;
-}
-
-.register-button {
-    left: 18%;
-    top: 86.0%;
-    width: 64%;
-    height: 10.0%;
-    border-radius: 20px;
-}
-
-.back-button {
-    left: 25%;
-    top: 96%;
-    width: 50%;
-    height: 4%;
-}
-
-/* ---------------------------------------------------------
-   ИНТЕРАКТИВНЫЕ ПОЛЯ — рамки/placeholder уже в картинке.
-   --------------------------------------------------------- */
 .input-box {
     position: absolute;
-    z-index: 10;
     left: 8.5%;
     width: 83%;
     height: 9.3%;
-    margin: 0;
-    padding: 0;
-    display: block;
     border: 0;
-    border-radius: 24px;
     background: transparent;
-    box-shadow: none;
 }
 
-.input-box:first-child { top: 33.0%; }
-.input-box:nth-child(2) { top: 44.8%; }
-
-.input-icon { display: none; }
+.input-login { top: 33.0%; }
+.input-password { top: 44.8%; }
 
 .input-box input {
     width: 100%;
     height: 100%;
-    margin: 0;
     padding: 0 15%;
     border: 0;
-    outline: 0;
+    outline: none;
     background: transparent;
-    color: var(--cream);
-    font-size: clamp(17px, 4.5vw, 28px);
+    color: #eee5d2;
+    font-size: clamp(16px, 4.5vw, 28px);
     font-family: Arial, sans-serif;
 }
 
 .input-box input::placeholder {
     color: transparent;
-    opacity: 0;
 }
 
 .password-eye {
@@ -172,46 +67,60 @@ body { font-family: Arial, sans-serif; }
     top: 0;
     width: 15%;
     height: 100%;
-    margin: 0;
-    padding: 0;
     border: 0;
     background: transparent;
-    color: transparent;
-    font-size: 0;
     cursor: pointer;
 }
 
-/* Прозрачная зона поверх готовой кнопки */
 .login-button {
     position: absolute;
-    z-index: 10;
     left: 8.5%;
     top: 57.0%;
     width: 83%;
     height: 9.8%;
-    margin: 0;
-    padding: 0;
     border: 0;
     border-radius: 25px;
     background: transparent;
     color: transparent;
-    font-size: 0;
     cursor: pointer;
-    box-shadow: none;
 }
 
-.login-button:hover,
-.login-button:active { transform: none; filter: none; box-shadow: none; }
+.forgot-button,
+.register-button,
+.back-button {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.forgot-button {
+    left: 17%;
+    top: 67.0%;
+    width: 66%;
+    height: 6%;
+}
+
+.register-button {
+    left: 8.5%;
+    top: 81.0%;
+    width: 83%;
+    height: 12%;
+}
+
+.back-button {
+    left: 25%;
+    top: 94%;
+    width: 50%;
+    height: 5%;
+}
 
 @media (max-width: 700px) {
     .login-page { min-height: 100svh; }
-
-    .input-box { border-radius: 18px; }
     .input-box input {
         padding-left: 14%;
         padding-right: 14%;
         font-size: 16px;
     }
-
-    .register-button { border-radius: 18px; }
 }
