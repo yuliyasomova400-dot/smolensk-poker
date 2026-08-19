@@ -33,6 +33,7 @@ body { font-family: Arial, sans-serif; }
     padding: 0;
 }
 
+/* Точные зоны ввода поверх рамок на login.png */
 .input-box {
     position: absolute;
     left: 8.5%;
@@ -40,10 +41,11 @@ body { font-family: Arial, sans-serif; }
     height: 9.3%;
     border: 0;
     background: transparent;
+    z-index: 10;
 }
 
-.input-login { top: 33.0%; }
-.input-password { top: 44.8%; }
+.input-login { top: 40.5%; }
+.input-password { top: 52.5%; }
 
 .input-box input {
     width: 100%;
@@ -75,7 +77,7 @@ body { font-family: Arial, sans-serif; }
 .login-button {
     position: absolute;
     left: 8.5%;
-    top: 57.0%;
+    top: 64.5%;
     width: 83%;
     height: 9.8%;
     border: 0;
@@ -83,6 +85,7 @@ body { font-family: Arial, sans-serif; }
     background: transparent;
     color: transparent;
     cursor: pointer;
+    z-index: 10;
 }
 
 .forgot-button,
@@ -93,31 +96,33 @@ body { font-family: Arial, sans-serif; }
     background: transparent;
     color: transparent;
     cursor: pointer;
+    z-index: 10;
 }
 
 .forgot-button {
     left: 17%;
-    top: 67.0%;
+    top: 75.5%;
     width: 66%;
     height: 6%;
 }
 
 .register-button {
     left: 8.5%;
-    top: 81.0%;
+    top: 84%;
     width: 83%;
     height: 12%;
 }
 
 .back-button {
     left: 25%;
-    top: 94%;
+    top: 95%;
     width: 50%;
     height: 5%;
 }
 
 @media (max-width: 700px) {
     .login-page { min-height: 100svh; }
+
     .input-box input {
         padding-left: 14%;
         padding-right: 14%;
