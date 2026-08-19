@@ -33,23 +33,27 @@ body { font-family: Arial, sans-serif; }
     padding: 0;
 }
 
-/* Зоны точно по рамкам на login.png */
+/* Координаты интерактивных зон привязаны к реальным рамкам login.png */
 .input-box {
     position: absolute;
     left: 17.5%;
     width: 74%;
-    height: 8.2%;
+    height: 6.3%;
+    margin: 0;
+    padding: 0;
     border: 0;
     background: transparent;
     z-index: 10;
 }
 
-.input-login { top: 42.4%; }
-.input-password { top: 51.0%; }
+.input-login { top: 40.0%; }
+.input-password { top: 48.1%; }
 
 .input-box input {
+    display: block;
     width: 100%;
     height: 100%;
+    margin: 0;
     padding: 0 14%;
     border: 0;
     outline: none;
@@ -57,6 +61,8 @@ body { font-family: Arial, sans-serif; }
     color: #eee5d2;
     font-size: clamp(16px, 4.5vw, 28px);
     font-family: Arial, sans-serif;
+    line-height: 1;
+    vertical-align: middle;
 }
 
 .input-box input::placeholder {
@@ -69,6 +75,7 @@ body { font-family: Arial, sans-serif; }
     top: 0;
     width: 15%;
     height: 100%;
+    padding: 0;
     border: 0;
     background: transparent;
     cursor: pointer;
@@ -77,9 +84,10 @@ body { font-family: Arial, sans-serif; }
 .login-button {
     position: absolute;
     left: 17.5%;
-    top: 60.2%;
+    top: 56.8%;
     width: 74%;
-    height: 7.5%;
+    height: 6.6%;
+    padding: 0;
     border: 0;
     border-radius: 25px;
     background: transparent;
@@ -101,21 +109,21 @@ body { font-family: Arial, sans-serif; }
 
 .forgot-button {
     left: 17.5%;
-    top: 68.5%;
+    top: 65.7%;
     width: 74%;
     height: 5%;
 }
 
 .register-button {
     left: 17.5%;
-    top: 77.8%;
+    top: 75.1%;
     width: 74%;
     height: 10.5%;
 }
 
 .back-button {
     left: 30%;
-    top: 90.5%;
+    top: 88.6%;
     width: 40%;
     height: 6%;
 }
