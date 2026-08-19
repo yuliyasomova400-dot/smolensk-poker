@@ -1,6 +1,4 @@
-/* СМОЛЕНСКИЙ ПОКЕР — ВХОД
-   Весь внешний дизайн находится в images/login.png.
-   HTML содержит только невидимые интерактивные зоны. */
+/* СМОЛЕНСКИЙ ПОКЕР — ВХОД */
 
 * { box-sizing: border-box; }
 
@@ -33,7 +31,6 @@ body { font-family: Arial, sans-serif; }
     padding: 0;
 }
 
-/* Интерактивные зоны точно привязаны к рамкам на login.png */
 .input-box {
     position: absolute;
     left: 17.5%;
@@ -49,8 +46,6 @@ body { font-family: Arial, sans-serif; }
 .input-login { top: 40.0%; }
 .input-password { top: 48.1%; }
 
-/* Ввод текста не должен смещаться вниз: поле растянуто на всю рамку,
-   а внутренние отступы по вертикали убраны. */
 .input-box input {
     position: absolute;
     inset: 0;
@@ -71,6 +66,24 @@ body { font-family: Arial, sans-serif; }
     vertical-align: middle;
     -webkit-appearance: none;
     appearance: none;
+    position: relative;
+    z-index: 2;
+}
+
+/* Текст с картинки исчезает только после начала ввода.
+   Пустое поле остаётся полностью таким, как на исходной картинке. */
+.input-box.has-value::before,
+.input-box:focus-within::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 7%;
+    bottom: 7%;
+    border-radius: 6px;
+    background: rgba(7, 29, 24, 0.94);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .input-box input::placeholder {
@@ -87,6 +100,7 @@ body { font-family: Arial, sans-serif; }
     border: 0;
     background: transparent;
     cursor: pointer;
+    z-index: 3;
 }
 
 .login-button {
