@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Смоленский Покер</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        html,
-        body {
+        html, body {
             margin: 0;
             width: 100%;
             min-height: 100%;
@@ -28,141 +24,50 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
-
             background-image: url("images/home.png");
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        /* Кнопка ИГРАТЬ */
-
-        #playButton {
+        #loginButton {
             position: absolute;
-
             left: 9%;
             top: 45.5%;
-
             width: 30%;
             height: 9%;
-
             border: 0;
             border-radius: 28px;
-
             background: transparent;
-
             cursor: pointer;
-
             color: transparent;
         }
 
-        #playButton:hover {
+        #loginButton:hover {
             background: rgba(255,255,255,0.06);
         }
 
-        /* Нижние кнопки */
-
-        #ratingButton {
-            position: absolute;
-
-            left: 9%;
-            top: 56.5%;
-
-            width: 17%;
-            height: 15%;
-
-            border: 0;
-            background: transparent;
-
-            cursor: pointer;
-
-            color: transparent;
-        }
-
-        #profileButton {
-            position: absolute;
-
-            left: 34%;
-            top: 56.5%;
-
-            width: 17%;
-            height: 15%;
-
-            border: 0;
-            background: transparent;
-
-            cursor: pointer;
-
-            color: transparent;
-        }
-
-        #avatarButton {
-            position: absolute;
-
-            left: 59%;
-            top: 56.5%;
-
-            width: 17%;
-            height: 15%;
-
-            border: 0;
-            background: transparent;
-
-            cursor: pointer;
-
-            color: transparent;
-        }
-
-        #settingsButton {
-            position: absolute;
-
-            left: 9%;
-            top: 73.5%;
-
-            width: 17%;
-            height: 15%;
-
-            border: 0;
-            background: transparent;
-
-            cursor: pointer;
-
-            color: transparent;
-        }
-
-        #rulesButton {
-            position: absolute;
-
-            left: 34%;
-            top: 73.5%;
-
-            width: 17%;
-            height: 15%;
-
-            border: 0;
-            background: transparent;
-
-            cursor: pointer;
-
-            color: transparent;
-        }
-
+        #ratingButton,
+        #profileButton,
+        #avatarButton,
+        #settingsButton,
+        #rulesButton,
         #newsButton {
             position: absolute;
-
-            left: 59%;
-            top: 73.5%;
-
             width: 17%;
             height: 15%;
-
             border: 0;
             background: transparent;
-
             cursor: pointer;
-
             color: transparent;
         }
+
+        #ratingButton { left: 9%; top: 56.5%; }
+        #profileButton { left: 34%; top: 56.5%; }
+        #avatarButton { left: 59%; top: 56.5%; }
+        #settingsButton { left: 9%; top: 73.5%; }
+        #rulesButton { left: 34%; top: 73.5%; }
+        #newsButton { left: 59%; top: 73.5%; }
 
         button:hover {
             background: rgba(255,255,255,0.05);
@@ -170,14 +75,13 @@
         }
 
         @media (max-width: 700px) {
-
             .home {
                 min-height: 100vh;
                 background-size: auto 100vh;
                 background-position: top center;
             }
 
-            #playButton {
+            #loginButton {
                 left: 9%;
                 top: 45.5%;
                 width: 82%;
@@ -194,29 +98,12 @@
                 height: 15%;
             }
 
-            #ratingButton {
-                left: 9%;
-            }
-
-            #profileButton {
-                left: 37.5%;
-            }
-
-            #avatarButton {
-                left: 66%;
-            }
-
-            #settingsButton {
-                left: 9%;
-            }
-
-            #rulesButton {
-                left: 37.5%;
-            }
-
-            #newsButton {
-                left: 66%;
-            }
+            #ratingButton { left: 9%; }
+            #profileButton { left: 37.5%; }
+            #avatarButton { left: 66%; }
+            #settingsButton { left: 9%; }
+            #rulesButton { left: 37.5%; }
+            #newsButton { left: 66%; }
         }
     </style>
 </head>
@@ -225,37 +112,17 @@
 
     <main class="home">
 
-        <button id="playButton" aria-label="Играть">
-            Играть
-        </button>
+        <button id="loginButton" aria-label="Войти">Войти</button>
 
-        <button id="ratingButton" aria-label="Рейтинг">
-            Рейтинг
-        </button>
-
-        <button id="profileButton" aria-label="Профиль">
-            Профиль
-        </button>
-
-        <button id="avatarButton" aria-label="Аватар">
-            Аватар
-        </button>
-
-        <button id="settingsButton" aria-label="Настройки">
-            Настройки
-        </button>
-
-        <button id="rulesButton" aria-label="Правила">
-            Правила
-        </button>
-
-        <button id="newsButton" aria-label="Новости">
-            Новости
-        </button>
+        <button id="ratingButton" aria-label="Рейтинг">Рейтинг</button>
+        <button id="profileButton" aria-label="Профиль">Профиль</button>
+        <button id="avatarButton" aria-label="Аватар">Аватар</button>
+        <button id="settingsButton" aria-label="Настройки">Настройки</button>
+        <button id="rulesButton" aria-label="Правила">Правила</button>
+        <button id="newsButton" aria-label="Новости">Новости</button>
 
     </main>
 
-    <!-- Логика кнопок и звуки -->
     <script src="js/app.js"></script>
 
 </body>
