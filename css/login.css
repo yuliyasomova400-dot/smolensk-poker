@@ -1,240 +1,222 @@
 /* =========================================================
-   СМОЛЕНСКИЙ ПОКЕР — СТРАНИЦА ВХОДА
+   СМОЛЕНСКИЙ ПОКЕР — ВХОД
+   Дизайн полностью находится в images/login.png.
+   HTML здесь используется только как интерактивный слой.
    ========================================================= */
 
 :root {
     --cream: #eee5d2;
-    --cream-soft: #d8cbb3;
     --gold: #b79b6e;
-    --green-dark: #071d18;
-    --border: rgba(183, 155, 110, 0.75);
-    --shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
     margin: 0;
     width: 100%;
+    height: 100%;
     min-height: 100%;
+    overflow: hidden;
+    background: #071d18;
 }
 
 body {
-    background: #071d18;
-    color: var(--cream);
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
 }
 
+/* Фоновая картинка уже содержит весь внешний вид страницы */
 .login-page {
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    background:
-        linear-gradient(rgba(5, 24, 20, 0.48), rgba(5, 24, 20, 0.58)),
-        url("../images/login.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/*
-   ВАЖНО:
-   Рамка уже нарисована внутри login.png.
-   Поэтому у HTML-карточки рамку, фон и тень НЕ рисуем,
-   чтобы не получать двойную рамку.
-*/
-.login-card {
-    width: min(810px, 94vw);
-    min-height: 900px;
-    padding: 55px clamp(25px, 7vw, 80px) 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-}
-
-.login-spade {
-    width: 90px;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: var(--cream);
-    font-size: 76px;
-    line-height: 1;
-}
-
-.login-card h1 {
-    margin: 0;
-    font-size: clamp(52px, 7vw, 82px);
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--cream);
-    text-align: center;
-}
-
-.login-subtitle {
-    margin-top: 15px;
-    margin-bottom: 55px;
-    font-size: clamp(20px, 3vw, 30px);
-    color: var(--cream-soft);
-    letter-spacing: 0.03em;
-}
-
-#loginForm { width: 100%; }
-
-.input-box {
-    position: relative;
     width: 100%;
-    height: 105px;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    border: 2px solid var(--border);
+    height: 100svh;
+    min-height: 600px;
+    overflow: hidden;
+    background-image: url("../images/login.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+/* Интерактивный слой занимает весь экран */
+.login-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+/* Всё, что уже нарисовано в login.png, не рисуем второй раз */
+.login-spade,
+.login-card h1,
+.login-subtitle,
+.input-icon,
+.or,
+.register-icon,
+.register-small,
+.register-title,
+.back-button {
+    display: none;
+}
+
+#loginForm {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Поля совпадают с полями, нарисованными на картинке */
+.input-box {
+    position: absolute;
+    left: 8.5%;
+    width: 83%;
+    height: 9.3%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    border: 0;
     border-radius: 24px;
-    background: rgba(4, 25, 20, 0.65);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: transparent;
+    box-shadow: none;
+}
+
+.input-box:first-child {
+    top: 33.0%;
+}
+
+.input-box:nth-child(2) {
+    top: 44.8%;
 }
 
 .input-box:focus-within {
-    border-color: var(--cream);
-    box-shadow: 0 0 0 3px rgba(183, 155, 110, 0.12);
-}
-
-.input-icon {
-    width: 85px;
-    flex-shrink: 0;
-    text-align: center;
-    color: var(--gold);
-    font-size: 42px;
+    border: 0;
+    box-shadow: none;
 }
 
 .input-box input {
     width: 100%;
     height: 100%;
-    padding: 0 25px 0 0;
+    margin: 0;
+    padding: 0 15%;
     border: 0;
     outline: 0;
     background: transparent;
     color: var(--cream);
-    font-size: clamp(18px, 2.4vw, 26px);
+    font-size: clamp(17px, 4.5vw, 28px);
+    font-family: Arial, sans-serif;
 }
 
-.input-box input::placeholder { color: rgba(216, 203, 179, 0.7); }
+/* Текст-подсказка уже есть на фоне, поэтому не дублируем его */
+.input-box input::placeholder {
+    color: transparent;
+    opacity: 0;
+}
 
 .password-eye {
-    width: 80px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 15%;
     height: 100%;
-    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
     border: 0;
     background: transparent;
-    color: var(--gold);
-    font-size: 32px;
+    color: transparent;
+    font-size: 0;
     cursor: pointer;
 }
 
+/* Кнопка ВОЙТИ — прозрачная зона поверх готовой кнопки */
 .login-button {
-    width: 100%;
-    height: 110px;
-    margin-top: 5px;
-    border: 2px solid rgba(238, 229, 210, 0.8);
+    position: absolute;
+    left: 8.5%;
+    top: 57.0%;
+    width: 83%;
+    height: 9.8%;
+    margin: 0;
+    padding: 0;
+    border: 0;
     border-radius: 25px;
-    background: linear-gradient(145deg, #77846c, #263d34);
-    color: var(--cream);
-    font-size: clamp(28px, 4vw, 38px);
-    letter-spacing: 0.04em;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
     cursor: pointer;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
-    transition: transform 0.18s ease, filter 0.18s ease;
+    box-shadow: none;
 }
 
-.login-button:hover { transform: translateY(-2px); filter: brightness(1.12); }
-.login-button:active { transform: translateY(1px); }
+.login-button:hover,
+.login-button:active {
+    transform: none;
+    filter: none;
+    box-shadow: none;
+}
 
+/* Забыли пароль? */
 .forgot-button {
-    margin-top: 34px;
+    position: absolute;
+    left: 8.5%;
+    top: 69.2%;
+    width: 83%;
+    height: 5.5%;
+    margin: 0;
+    padding: 0;
     border: 0;
     background: transparent;
-    color: var(--gold);
-    font-size: 24px;
+    color: transparent;
+    font-size: 0;
     cursor: pointer;
 }
 
-.or {
-    width: 100%;
-    margin: 50px 0 35px;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.or span { flex: 1; height: 1px; background: rgba(183, 155, 110, 0.65); }
-.or b { font-size: 22px; font-weight: 400; color: var(--gold); letter-spacing: 0.1em; }
-
+/* Регистрация */
 .register-button {
-    width: 100%;
-    min-height: 155px;
-    padding: 25px;
-    border: 2px solid rgba(183, 155, 110, 0.8);
+    position: absolute;
+    left: 8.5%;
+    top: 83.0%;
+    width: 83%;
+    height: 15%;
+    margin: 0;
+    padding: 0;
+    border: 0;
     border-radius: 25px;
-    background: rgba(5, 27, 22, 0.55);
-    color: var(--cream);
+    background: transparent;
+    color: transparent;
     cursor: pointer;
-    transition: background 0.18s ease, transform 0.18s ease;
 }
 
 .register-button:hover {
-    background: rgba(183, 155, 110, 0.08);
-    transform: translateY(-2px);
-}
-
-.register-icon { margin-bottom: 7px; color: var(--gold); font-size: 35px; }
-.register-small { font-size: 20px; color: var(--cream-soft); letter-spacing: 0.06em; }
-.register-title { margin-top: 10px; font-size: clamp(22px, 3vw, 30px); font-weight: 600; letter-spacing: 0.04em; }
-
-.back-button {
-    margin-top: 45px;
-    border: 0;
     background: transparent;
-    color: var(--gold);
-    font-size: 25px;
-    cursor: pointer;
-    letter-spacing: 0.04em;
+    transform: none;
 }
 
-.back-button:hover { color: var(--cream); }
-
+/* На очень узких экранах сохраняем те же пропорции */
 @media (max-width: 700px) {
-    .login-page { padding: 15px; }
-
-    .login-card {
-        width: 100%;
-        min-height: auto;
-        padding: 35px 20px 35px;
+    .login-page {
+        min-height: 100svh;
     }
 
-    .login-spade { width: 60px; height: 60px; font-size: 55px; margin-bottom: 10px; }
-    .login-card h1 { font-size: 48px; }
-    .login-subtitle { margin-bottom: 35px; font-size: 20px; }
-    .input-box { height: 72px; margin-bottom: 18px; border-radius: 18px; }
-    .input-icon { width: 55px; font-size: 27px; }
-    .input-box input { font-size: 16px; }
-    .password-eye { width: 55px; font-size: 24px; }
-    .login-button { height: 75px; border-radius: 18px; font-size: 27px; }
-    .forgot-button { margin-top: 25px; font-size: 18px; }
-    .or { margin: 35px 0 25px; gap: 15px; }
-    .or b { font-size: 17px; }
-    .register-button { min-height: 120px; border-radius: 18px; }
-    .register-small { font-size: 15px; }
-    .register-title { font-size: 20px; }
-    .back-button { margin-top: 30px; font-size: 20px; }
+    .input-box {
+        border-radius: 18px;
+    }
+
+    .input-box input {
+        padding-left: 14%;
+        padding-right: 14%;
+        font-size: 16px;
+    }
+
+    .register-button {
+        border-radius: 18px;
+    }
 }
