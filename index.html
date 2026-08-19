@@ -7,96 +7,42 @@
 
     <style>
         * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; background: #0b211b; }
+        body { overflow-x: hidden; font-family: Arial, sans-serif; }
+        .home { position: relative; width: 100%; aspect-ratio: 736 / 1308; background-image: url("images/home.png"); background-position: top center; background-repeat: no-repeat; background-size: 100% 100%; }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-            background: #0b211b;
-        }
-
-        body {
-            overflow-x: hidden;
-            font-family: Arial, sans-serif;
-        }
-
-        .home {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 736 / 1308;
-            background-image: url("images/home.png");
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-        }
-
-        /* КНОПКА ВОЙТИ — именно button, чтобы тап на телефоне точно обрабатывался */
         #loginButton {
-            position: absolute;
-            left: 73.5%;
-            top: 4.1%;
-            width: 22%;
-            height: 5%;
-            padding: 0;
-            margin: 0;
-            display: block;
-            z-index: 999999;
-            pointer-events: auto;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: rgba(238,232,217,.25);
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 999px;
-            background: transparent;
-            color: transparent;
-            appearance: none;
-            -webkit-appearance: none;
-            transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .08s ease;
+            position:absolute; left:73.5%; top:4.1%; width:22%; height:5%; padding:0; margin:0; display:block; z-index:999999;
+            pointer-events:auto; touch-action:manipulation; -webkit-tap-highlight-color:rgba(238,232,217,.25); cursor:pointer;
+            border:2px solid transparent; border-radius:999px; background:transparent; color:transparent; appearance:none; -webkit-appearance:none;
         }
+        #loginButton:hover { background:rgba(238,232,217,.12); border-color:rgba(238,232,217,.65); box-shadow:0 0 0 3px rgba(238,232,217,.08),0 8px 25px rgba(0,0,0,.20); }
+        #loginButton:active { background:rgba(238,232,217,.22); border-color:rgba(238,232,217,.85); transform:scale(.97); }
 
-        #loginButton:hover {
-            background: rgba(238,232,217,.12);
-            border-color: rgba(238,232,217,.65);
-            box-shadow: 0 0 0 3px rgba(238,232,217,.08), 0 8px 25px rgba(0,0,0,.20);
+        /* Кнопка ИГРАТЬ поверх изображения */
+        #playButton {
+            position:absolute; left:8.5%; top:45.2%; width:46%; height:9.8%; z-index:999998;
+            display:block; padding:0; margin:0; cursor:pointer; pointer-events:auto; touch-action:manipulation;
+            border:2px solid transparent; border-radius:24px; background:transparent; color:transparent;
+            appearance:none; -webkit-appearance:none; -webkit-tap-highlight-color:rgba(238,232,217,.20);
         }
+        #playButton:hover { background:rgba(238,232,217,.08); border-color:rgba(238,232,217,.28); box-shadow:0 0 0 3px rgba(238,232,217,.06); }
+        #playButton:active { background:rgba(238,232,217,.16); transform:scale(.985); }
 
-        #loginButton:active {
-            background: rgba(238,232,217,.22);
-            border-color: rgba(238,232,217,.85);
-            transform: scale(.97);
-        }
-
-        .menu-link {
-            position: absolute;
-            z-index: 900;
-            display: block;
-            cursor: pointer;
-            text-decoration: none;
-            color: transparent;
-            background: transparent;
-            border: 2px solid transparent;
-        }
-
-        #ratingButton { left: 8.5%; top: 57.2%; width: 26%; height: 14.5%; }
-        #profileButton { left: 37%; top: 57.2%; width: 26%; height: 14.5%; }
-        #avatarButton { left: 65.5%; top: 57.2%; width: 26%; height: 14.5%; }
-        #settingsButton { left: 8.5%; top: 74%; width: 26%; height: 14.5%; }
-        #rulesButton { left: 37%; top: 74%; width: 26%; height: 14.5%; }
-        #newsButton { left: 65.5%; top: 74%; width: 26%; height: 14.5%; }
-
-        .menu-link:hover {
-            background: rgba(238,232,217,.06);
-            border-color: rgba(238,232,217,.20);
-            border-radius: 22px;
-        }
+        .menu-link { position:absolute; z-index:900; display:block; cursor:pointer; text-decoration:none; color:transparent; background:transparent; border:2px solid transparent; }
+        #ratingButton { left:8.5%; top:57.2%; width:26%; height:14.5%; }
+        #profileButton { left:37%; top:57.2%; width:26%; height:14.5%; }
+        #avatarButton { left:65.5%; top:57.2%; width:26%; height:14.5%; }
+        #settingsButton { left:8.5%; top:74%; width:26%; height:14.5%; }
+        #rulesButton { left:37%; top:74%; width:26%; height:14.5%; }
+        #newsButton { left:65.5%; top:74%; width:26%; height:14.5%; }
+        .menu-link:hover { background:rgba(238,232,217,.06); border-color:rgba(238,232,217,.20); border-radius:22px; }
     </style>
 </head>
-
 <body>
     <main class="home">
         <button id="loginButton" type="button" aria-label="Войти">ВОЙТИ</button>
-
+        <button id="playButton" type="button" aria-label="Играть">ИГРАТЬ</button>
         <a class="menu-link" id="ratingButton" href="#" aria-label="Рейтинг"></a>
         <a class="menu-link" id="profileButton" href="#" aria-label="Профиль"></a>
         <a class="menu-link" id="avatarButton" href="#" aria-label="Аватар"></a>
@@ -104,19 +50,12 @@
         <a class="menu-link" id="rulesButton" href="#" aria-label="Правила"></a>
         <a class="menu-link" id="newsButton" href="#" aria-label="Новости"></a>
     </main>
-
     <script>
-        function openLogin(event) {
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            window.location.assign('./login.html');
-        }
-
-        const loginButton = document.getElementById('loginButton');
-        loginButton.addEventListener('click', openLogin);
-        loginButton.addEventListener('touchend', openLogin, { passive: false });
+        function go(path, event) { if(event){event.preventDefault();event.stopPropagation();} window.location.assign(path); }
+        document.getElementById('loginButton').addEventListener('click', e => go('./login.html', e));
+        document.getElementById('loginButton').addEventListener('touchend', e => go('./login.html', e), {passive:false});
+        document.getElementById('playButton').addEventListener('click', e => go('./table.html', e));
+        document.getElementById('playButton').addEventListener('touchend', e => go('./table.html', e), {passive:false});
     </script>
 </body>
 </html>
