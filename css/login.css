@@ -1,25 +1,126 @@
 /* СМОЛЕНСКИЙ ПОКЕР — ВХОД */
+
 * { box-sizing: border-box; }
-html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #071d18; }
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #071d18;
+}
+
 body { font-family: Arial, sans-serif; }
-.login-page { position: relative; width: 100%; height: 100svh; min-height: 600px; overflow: hidden; background: url("../images/login-bg.png?v=2") center center / 100% 100% no-repeat; }
 
-/* Верхняя часть — настоящие HTML-элементы */
-.login-header { position: absolute; left: 10%; top: 8.8%; width: 80%; text-align: center; color: #eee5d2; z-index: 5; pointer-events: none; }
-.login-header .suit { margin: 0 0 1.8%; font-family: Georgia, "Times New Roman", serif; font-size: clamp(52px, 10vw, 76px); line-height: 1; color: #eee5d2; text-shadow: 0 2px 5px rgba(0,0,0,.28); }
-.login-header h1 { margin: 0; font-size: clamp(42px, 9.2vw, 70px); line-height: 1.05; font-weight: 400; letter-spacing: .01em; color: #eee5d2; text-shadow: 0 2px 5px rgba(0,0,0,.25); }
-.login-header .brand { margin-top: 2.2%; font-size: clamp(20px, 4.2vw, 32px); line-height: 1.2; font-weight: 400; color: #eee5d2; letter-spacing: .01em; text-shadow: 0 2px 4px rgba(0,0,0,.22); }
+.login-page {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    overflow: hidden;
+    background: url("../images/login-bg.png?v=1") center center / 100% 100% no-repeat;
+}
 
-/* Остальные элементы добавим следующим этапом */
-.interaction-layer { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 0; }
-.input-box { position: absolute; left: 17.5%; width: 74%; height: 6.3%; margin: 0; padding: 0; border: 0; background: transparent; z-index: 10; }
-.input-login { top: 40%; } .input-password { top: 48.1%; }
-.input-box input { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; padding: 0 14%; border: 0; outline: none; background: transparent; color: #eee5d2; font-size: clamp(16px, 4.5vw, 28px); font-family: Arial, sans-serif; font-weight: 400; line-height: 6.3vh; text-align: left; -webkit-appearance: none; appearance: none; z-index: 3; }
+.interaction-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.input-box {
+    position: absolute;
+    left: 17.5%;
+    width: 74%;
+    height: 6.3%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    z-index: 10;
+}
+
+.input-login { top: 40.0%; }
+.input-password { top: 48.1%; }
+
+.input-box input {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 14%;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #eee5d2;
+    font-size: clamp(16px, 4.5vw, 28px);
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    line-height: 6.3vh;
+    text-align: left;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    z-index: 3;
+}
+
 .input-box input::placeholder { color: transparent; }
-.password-eye { position: absolute; right: 0; top: 0; width: 15%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; z-index: 4; }
-.login-button { position: absolute; left: 17.5%; top: 56.8%; width: 74%; height: 6.6%; padding: 0; border: 0; border-radius: 25px; background: transparent; color: transparent; cursor: pointer; z-index: 10; }
-.forgot-button, .register-button, .back-button { position: absolute; border: 0; background: transparent; color: transparent; cursor: pointer; z-index: 10; }
+
+.password-eye {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.login-button {
+    position: absolute;
+    left: 17.5%;
+    top: 56.8%;
+    width: 74%;
+    height: 6.6%;
+    padding: 0;
+    border: 0;
+    border-radius: 25px;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.forgot-button,
+.register-button,
+.back-button {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    z-index: 10;
+}
+
 .forgot-button { left: 17.5%; top: 65.7%; width: 74%; height: 5%; }
 .register-button { left: 17.5%; top: 75.1%; width: 74%; height: 10.5%; }
 .back-button { left: 30%; top: 88.6%; width: 40%; height: 6%; }
-@media (max-width: 700px) { .login-page { min-height: 100svh; } .login-header { top: 9.5%; } .login-header .suit { margin-bottom: 2%; } .login-header .brand { margin-top: 2.5%; } .input-box input { padding-left: 14%; padding-right: 14%; font-size: 16px; line-height: 6.3vh; } }
+
+@media (max-width: 700px) {
+    .login-page { min-height: 100svh; }
+    .input-box input {
+        padding-left: 14%;
+        padding-right: 14%;
+        font-size: 16px;
+        line-height: 6.3vh;
+    }
+}
