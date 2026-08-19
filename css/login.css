@@ -19,7 +19,7 @@ body { font-family: Arial, sans-serif; }
     height: 100svh;
     min-height: 600px;
     overflow: hidden;
-    background: url("../images/login.png") center center / 100% 100% no-repeat;
+    background: url("../images/login-bg.png?v=1") center center / 100% 100% no-repeat;
 }
 
 .interaction-layer {
@@ -70,9 +70,7 @@ body { font-family: Arial, sans-serif; }
     z-index: 3;
 }
 
-.input-box input::placeholder {
-    color: transparent;
-}
+.input-box input::placeholder { color: transparent; }
 
 .password-eye {
     position: absolute;
@@ -113,30 +111,12 @@ body { font-family: Arial, sans-serif; }
     z-index: 10;
 }
 
-.forgot-button {
-    left: 17.5%;
-    top: 65.7%;
-    width: 74%;
-    height: 5%;
-}
-
-.register-button {
-    left: 17.5%;
-    top: 75.1%;
-    width: 74%;
-    height: 10.5%;
-}
-
-.back-button {
-    left: 30%;
-    top: 88.6%;
-    width: 40%;
-    height: 6%;
-}
+.forgot-button { left: 17.5%; top: 65.7%; width: 74%; height: 5%; }
+.register-button { left: 17.5%; top: 75.1%; width: 74%; height: 10.5%; }
+.back-button { left: 30%; top: 88.6%; width: 40%; height: 6%; }
 
 @media (max-width: 700px) {
     .login-page { min-height: 100svh; }
-
     .input-box input {
         padding-left: 14%;
         padding-right: 14%;
