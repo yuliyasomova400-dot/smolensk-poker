@@ -5,12 +5,29 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const loginForm = document.getElementById("loginForm");
+    const login = document.getElementById("login");
     const showPassword = document.getElementById("showPassword");
     const password = document.getElementById("password");
     const forgotButton = document.getElementById("forgotButton");
     const registerButton = document.getElementById("registerButton");
     const backButton = document.getElementById("backButton");
 
+    // Убираем нарисованный на фоне текст поля, когда пользователь начинает вводить.
+    function updateInputState(input) {
+        if (!input || !input.parentElement) return;
+        input.parentElement.classList.toggle("has-value", input.value.length > 0);
+    }
+
+    [login, password].forEach(function (input) {
+        if (!input) return;
+        input.addEventListener("input", function () {
+            updateInputState(input);
+        });
+        input.addEventListener("change", function () {
+            updateInputState(input);
+        });
+        updateInputState(input);
+    });
 
     // Показать / скрыть пароль
     if (showPassword && password) {
@@ -27,16 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
     // Вход — пока демонстрационный режим
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const login = document.getElementById("login").value.trim();
+            const loginValue = login.value.trim();
             const passwordValue = password.value.trim();
 
-            if (!login || !passwordValue) {
+            if (!loginValue || !passwordValue) {
                 alert("Введите электронную почту / телефон и пароль.");
                 return;
             }
@@ -45,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
     // Забыли пароль
     if (forgotButton) {
         forgotButton.addEventListener("click", function () {
@@ -53,14 +68,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
     // Регистрация
     if (registerButton) {
         registerButton.addEventListener("click", function () {
             window.location.href = "register.html";
         });
     }
-
 
     // Назад на главную
     if (backButton) {
