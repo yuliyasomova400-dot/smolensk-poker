@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Смоленский Покер</title>
-<link rel="stylesheet" href="css/login.css?v=20260819-15">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Смоленский Покер</title><link rel="stylesheet" href="css/login.css?v=20260819-17">
 <style>
-.cabinet-card{text-align:center;padding-top:38px}.cabinet-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px;color:#eee5d2;font-size:22px;letter-spacing:2px}.cabinet-brand .brand-spade{font-size:42px}.welcome{font-size:28px;letter-spacing:3px;margin-bottom:34px;color:#eee5d2}.avatar{width:112px;height:112px;margin:0 auto 20px;border:1px solid #9b8b68;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0a211e;color:#c5b38b;font-size:46px}.nickname{font-size:25px;letter-spacing:2px;color:#eee5d2}.rating{margin-top:8px;color:#c5b38b;font-size:17px}.play-button{width:100%;height:78px;margin-top:44px;border:1px solid #aaa486;border-radius:18px;background:linear-gradient(145deg,#526252,#34473b);color:#eee5d2;font-size:25px;letter-spacing:4px;cursor:pointer}.cabinet-link{display:block;margin:28px auto 0;padding:8px 16px;border:0;background:transparent;color:#c5b38b;font-size:18px;letter-spacing:1px;cursor:pointer}.logout{margin-top:18px;color:#bda9a0}.cabinet-status{min-height:20px;margin-top:16px;color:#d9a29a;font-size:14px}@media(max-width:600px){.cabinet-card{padding-top:30px}.cabinet-brand{margin-bottom:38px;font-size:18px}.welcome{font-size:23px}.avatar{width:100px;height:100px}.play-button{margin-top:36px}}
-</style>
-</head>
-<body>
-<main class="login-page"><section class="login-card cabinet-card">
-<div class="cabinet-brand"><span class="brand-spade">♠</span><span>СМОЛЕНСКИЙ ПОКЕР</span></div>
-<div class="welcome">ДОБРО ПОЖАЛОВАТЬ</div>
-<div class="avatar" id="avatar">♙</div>
-<div class="nickname" id="nickname">Игрок</div>
-<div class="rating">рейтинг: <strong id="rating">1000</strong></div>
-<button class="play-button" id="playButton">ИГРАТЬ</button>
-<button class="cabinet-link" id="settingsButton">НАСТРОЙКИ</button>
-<div class="cabinet-status" id="status"></div>
-<button class="cabinet-link logout" id="logoutButton">ВЫЙТИ</button>
+.cabinet-card{text-align:center;padding-top:38px}.cabinet-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px;color:#eee5d2;font-size:22px;letter-spacing:2px}.cabinet-brand .brand-spade{font-size:42px}.welcome{font-size:28px;letter-spacing:3px;margin-bottom:34px;color:#eee5d2}.avatar{width:112px;height:112px;margin:0 auto 20px;border:1px solid #9b8b68;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0a211e;color:#c5b38b;font-size:46px;cursor:pointer;overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.avatar:hover{box-shadow:0 0 0 2px #b7a77d}.nickname{font-size:25px;letter-spacing:2px;color:#eee5d2}.rating{margin-top:8px;color:#c5b38b;font-size:17px}.play-button{width:100%;height:78px;margin-top:44px;border:1px solid #aaa486;border-radius:18px;background:linear-gradient(145deg,#526252,#34473b);color:#eee5d2;font-size:25px;letter-spacing:4px;cursor:pointer}.cabinet-link{display:block;margin:28px auto 0;padding:8px 16px;border:0;background:transparent;color:#c5b38b;font-size:18px;letter-spacing:1px;cursor:pointer}.logout{margin-top:18px;color:#bda9a0}.cabinet-status{min-height:20px;margin-top:16px;color:#d9a29a;font-size:14px}.avatar-modal{position:fixed;inset:0;background:rgba(2,16,14,.82);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.avatar-modal.open{display:flex}.avatar-window{width:min(680px,100%);max-height:90vh;overflow:auto;background:#0b2522;border:1px solid #9b8b68;border-radius:22px;padding:28px;box-shadow:0 18px 60px rgba(0,0,0,.5)}.avatar-title{text-align:center;color:#eee5d2;font-size:24px;letter-spacing:3px;margin-bottom:24px}.avatar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.avatar-choice{aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:2px solid #806f50;background:#fff;padding:0;cursor:pointer}.avatar-choice img{width:100%;height:100%;object-fit:cover;display:block}.avatar-choice.selected{border-color:#e6d5af;box-shadow:0 0 0 3px rgba(230,213,175,.2)}.avatar-actions{display:flex;gap:12px;justify-content:center;margin-top:24px}.avatar-action{border:1px solid #9b8b68;border-radius:12px;background:transparent;color:#d8c9aa;padding:12px 26px;font-size:15px;letter-spacing:1px;cursor:pointer}.avatar-action.save{background:#526252;color:#eee5d2}.avatar-hint{text-align:center;color:#918f86;font-size:12px;margin-top:12px}@media(max-width:600px){.cabinet-card{padding-top:30px}.cabinet-brand{margin-bottom:38px;font-size:18px}.welcome{font-size:23px}.avatar{width:100px;height:100px}.play-button{margin-top:36px}.avatar-grid{grid-template-columns:repeat(3,1fr);gap:12px}.avatar-window{padding:22px}.avatar-title{font-size:20px}}
+</style></head>
+<body><main class="login-page"><section class="login-card cabinet-card">
+<div class="cabinet-brand"><span class="brand-spade">♠</span><span>СМОЛЕНСКИЙ ПОКЕР</span></div><div class="welcome">ДОБРО ПОЖАЛОВАТЬ</div>
+<div class="avatar" id="avatar" title="Выбрать аватар">♙</div><div class="nickname" id="nickname">Игрок</div><div class="rating">рейтинг: <strong id="rating">1000</strong></div>
+<button class="play-button" id="playButton">ИГРАТЬ</button><button class="cabinet-link" id="settingsButton">НАСТРОЙКИ</button><div class="cabinet-status" id="status"></div><button class="cabinet-link logout" id="logoutButton">ВЫЙТИ</button>
 </section></main>
+<div class="avatar-modal" id="avatarModal"><section class="avatar-window"><div class="avatar-title">ВЫБЕРИТЕ АВАТАР</div><div class="avatar-grid" id="avatarGrid"></div><div class="avatar-actions"><button class="avatar-action" id="cancelAvatar">ОТМЕНА</button><button class="avatar-action save" id="saveAvatar">СОХРАНИТЬ</button></div><div class="avatar-hint">Выбранный аватар сохранится в вашем профиле</div></section></div>
 <script type="module">
-import { supabase } from './js/supabase.js';
-const nickname=document.getElementById('nickname'),rating=document.getElementById('rating'),status=document.getElementById('status');
-const {data:{user}}=await supabase.auth.getUser();
-if(!user){window.location.href='login.html';}
-else{
- const {data:profile}=await supabase.from('profiles').select('nickname,rating').eq('id',user.id).maybeSingle();
- if(profile){nickname.textContent=profile.nickname||'Игрок';rating.textContent=profile.rating??1000;}
- else {nickname.textContent=user.user_metadata?.nickname||user.email?.split('@')[0]||'Игрок';}
-}
-document.getElementById('logoutButton').addEventListener('click',async()=>{await supabase.auth.signOut();window.location.href='login.html';});
-document.getElementById('playButton').addEventListener('click',()=>{status.textContent='Покерное лобби подключим следующим шагом.';});
-document.getElementById('settingsButton').addEventListener('click',()=>{status.textContent='Настройки игрока подключим следующим шагом.';});
-</script>
-</body>
-</html>
+import {supabase} from './js/supabase.js';
+const avatar=document.getElementById('avatar'),nickname=document.getElementById('nickname'),rating=document.getElementById('rating'),status=document.getElementById('status'),modal=document.getElementById('avatarModal'),grid=document.getElementById('avatarGrid');
+const avatarFiles=Array.from({length:10},(_,i)=>`avatars/avatar_${String(i+1).padStart(2,'0')}.png`);let user=null,selectedAvatar=null,currentAvatar=null;
+const {data:userData}=await supabase.auth.getUser();user=userData.user;if(!user){location.href='login.html'}else{const {data:profile}=await supabase.from('profiles').select('nickname,rating,avatar').eq('id',user.id).maybeSingle();if(profile){nickname.textContent=profile.nickname||'Игрок';rating.textContent=profile.rating??1000;currentAvatar=profile.avatar||null}else nickname.textContent=user.user_metadata?.nickname||user.email?.split('@')[0]||'Игрок';if(currentAvatar)showAvatar(currentAvatar)}
+function showAvatar(path){avatar.innerHTML=`<img src="${path}" alt="Аватар">`}
+function openModal(){grid.innerHTML='';selectedAvatar=currentAvatar;avatarFiles.forEach(path=>{const b=document.createElement('button');b.className='avatar-choice'+(path===selectedAvatar?' selected':'');b.innerHTML=`<img src="${path}" alt="Аватар">`;b.onclick=()=>{selectedAvatar=path;document.querySelectorAll('.avatar-choice').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')};grid.appendChild(b)});modal.classList.add('open')}
+avatar.onclick=openModal;document.getElementById('cancelAvatar').onclick=()=>modal.classList.remove('open');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+document.getElementById('saveAvatar').onclick=async()=>{if(!selectedAvatar)return;const {error}=await supabase.from('profiles').update({avatar:selectedAvatar}).eq('id',user.id);if(error){status.textContent='Не удалось сохранить аватар.';return}currentAvatar=selectedAvatar;showAvatar(currentAvatar);modal.classList.remove('open');status.textContent='Аватар сохранён.';setTimeout(()=>status.textContent='',1800)};
+document.getElementById('logoutButton').onclick=async()=>{await supabase.auth.signOut();location.href='login.html'};document.getElementById('playButton').onclick=()=>status.textContent='Покерное лобби подключим следующим шагом.';document.getElementById('settingsButton').onclick=()=>status.textContent='Настройки игрока подключим следующим шагом.';
+</script></body></html>
