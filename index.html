@@ -10,76 +10,126 @@
 
         html, body {
             margin: 0;
+            padding: 0;
             width: 100%;
             min-height: 100%;
+            background: #0b211b;
         }
 
         body {
-            background: #0b211b;
-            font-family: Arial, sans-serif;
             overflow-x: hidden;
+            font-family: Arial, sans-serif;
         }
 
+        /* Делаем высоту страницы равной пропорциям исходной картинки.
+           Поэтому кнопки всегда находятся точно на своих местах. */
         .home {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            aspect-ratio: 736 / 1308;
             background-image: url("images/home.png");
             background-position: top center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100%;
         }
 
-        /* Настоящая ссылка вместо невидимой кнопки */
+        /* =====================================================
+           КНОПКА «ВОЙТИ»
+           Реальная HTML-ссылка, не JavaScript.
+           Координаты соответствуют кнопке на home.png.
+           ===================================================== */
         .login-link {
             position: absolute;
-            left: 9%;
-            top: 45.5%;
-            width: 82%;
-            height: 9%;
+            left: 73.5%;
+            top: 4.1%;
+            width: 22%;
+            height: 5.0%;
             display: block;
-            z-index: 99999;
+            z-index: 1000;
             cursor: pointer;
             text-decoration: none;
-            color: transparent;
             background: transparent;
+            border: 2px solid transparent;
+            border-radius: 999px;
+            transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
         }
 
         .login-link:hover {
-            background: rgba(255,255,255,0.06);
-            border-radius: 28px;
+            background: rgba(238, 232, 217, 0.10);
+            border-color: rgba(238, 232, 217, 0.55);
+            box-shadow: 0 0 0 3px rgba(238, 232, 217, 0.08), 0 8px 25px rgba(0,0,0,.20);
         }
 
+        .login-link:active {
+            background: rgba(238, 232, 217, 0.18);
+            transform: scale(.985);
+        }
+
+        /* Нижние кнопки пока оставляем как зоны для будущих экранов. */
         .menu-link {
             position: absolute;
-            z-index: 99999;
-            width: 25%;
-            height: 15%;
+            z-index: 900;
             display: block;
             cursor: pointer;
             text-decoration: none;
             color: transparent;
             background: transparent;
+            border: 2px solid transparent;
+            transition: background .15s ease, border-color .15s ease;
         }
 
-        #ratingButton { left: 9%; top: 56.5%; }
-        #profileButton { left: 37.5%; top: 56.5%; }
-        #avatarButton { left: 66%; top: 56.5%; }
-        #settingsButton { left: 9%; top: 73.5%; }
-        #rulesButton { left: 37.5%; top: 73.5%; }
-        #newsButton { left: 66%; top: 73.5%; }
+        #ratingButton {
+            left: 8.5%;
+            top: 57.2%;
+            width: 26%;
+            height: 14.5%;
+        }
+
+        #profileButton {
+            left: 37%;
+            top: 57.2%;
+            width: 26%;
+            height: 14.5%;
+        }
+
+        #avatarButton {
+            left: 65.5%;
+            top: 57.2%;
+            width: 26%;
+            height: 14.5%;
+        }
+
+        #settingsButton {
+            left: 8.5%;
+            top: 74.0%;
+            width: 26%;
+            height: 14.5%;
+        }
+
+        #rulesButton {
+            left: 37%;
+            top: 74.0%;
+            width: 26%;
+            height: 14.5%;
+        }
+
+        #newsButton {
+            left: 65.5%;
+            top: 74.0%;
+            width: 26%;
+            height: 14.5%;
+        }
 
         .menu-link:hover {
-            background: rgba(255,255,255,0.05);
-            border-radius: 25px;
+            background: rgba(238, 232, 217, 0.06);
+            border-color: rgba(238, 232, 217, 0.20);
+            border-radius: 22px;
         }
     </style>
 </head>
 
 <body>
-
     <main class="home">
-
         <a class="login-link" href="login.html" aria-label="Войти"></a>
 
         <a class="menu-link" id="ratingButton" href="#" aria-label="Рейтинг"></a>
@@ -88,10 +138,6 @@
         <a class="menu-link" id="settingsButton" href="#" aria-label="Настройки"></a>
         <a class="menu-link" id="rulesButton" href="#" aria-label="Правила"></a>
         <a class="menu-link" id="newsButton" href="#" aria-label="Новости"></a>
-
     </main>
-
-    <script src="js/app.js"></script>
-
 </body>
 </html>
