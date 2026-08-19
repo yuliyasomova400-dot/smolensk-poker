@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Войти — Смоленский Покер</title>
-    <link rel="stylesheet" href="css/login.css?v=20260819-10">
+    <link rel="stylesheet" href="css/login.css?v=20260819-11">
 </head>
 <body>
     <main class="login-page" aria-label="Страница входа">
@@ -53,13 +53,31 @@
                 <span></span>
             </div>
 
-            <button type="button" class="register-button" id="registerButton">
-                <span class="register-icon" aria-hidden="true">♙+</span>
-                <span class="register-text">
-                    <span>НЕТ АККАУНТА?</span>
-                    <strong>ЗАРЕГИСТРИРОВАТЬСЯ</strong>
-                </span>
-            </button>
+            <section class="social-login" aria-label="Вход через сервисы">
+                <div class="social-title">ВОЙТИ ЧЕРЕЗ</div>
+
+                <div class="social-buttons">
+                    <button type="button" class="social-button social-mail" data-provider="mail">
+                        <span class="social-icon">@</span>
+                        <span>Mail</span>
+                    </button>
+
+                    <button type="button" class="social-button social-vk" data-provider="vk">
+                        <span class="social-icon social-vk-icon">vk</span>
+                        <span>VK</span>
+                    </button>
+
+                    <button type="button" class="social-button social-apple" data-provider="apple">
+                        <span class="social-icon social-apple-icon"></span>
+                        <span>Apple</span>
+                    </button>
+
+                    <button type="button" class="social-button social-max" data-provider="max">
+                        <span class="social-icon social-max-icon">M</span>
+                        <span>MAX</span>
+                    </button>
+                </div>
+            </section>
 
             <button type="button" class="back-button" id="backButton">← &nbsp; НАЗАД</button>
 
@@ -73,7 +91,6 @@
         passwordEye.addEventListener('click', () => {
             const isPassword = password.type === 'password';
             password.type = isPassword ? 'text' : 'password';
-            passwordEye.textContent = isPassword ? '◉' : '◉';
             passwordEye.setAttribute('aria-label', isPassword ? 'Скрыть пароль' : 'Показать пароль');
         });
 
@@ -86,8 +103,11 @@
             alert('Восстановление пароля подключим следующим шагом.');
         });
 
-        document.getElementById('registerButton').addEventListener('click', () => {
-            window.location.href = 'register.html';
+        document.querySelectorAll('.social-button').forEach((button) => {
+            button.addEventListener('click', () => {
+                const provider = button.dataset.provider.toUpperCase();
+                alert('Вход через ' + provider + ' подключим следующим шагом.');
+            });
         });
 
         document.getElementById('backButton').addEventListener('click', () => {
