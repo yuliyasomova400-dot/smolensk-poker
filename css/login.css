@@ -70,25 +70,6 @@ body { font-family: Arial, sans-serif; }
     z-index: 3;
 }
 
-/*
-   Текст-подсказка уже нарисован внутри login.png.
-   Этот слой закрывает именно нарисованный текст, когда поле активно
-   или в нём уже есть введённое значение. Сам ввод находится выше слоя.
-*/
-.input-box.has-value::before,
-.input-box:focus-within::before {
-    content: "";
-    position: absolute;
-    left: 12%;
-    right: 12%;
-    top: 7%;
-    bottom: 7%;
-    border-radius: 6px;
-    background: rgba(7, 29, 24, 0.96);
-    z-index: 2;
-    pointer-events: none;
-}
-
 .input-box input::placeholder {
     color: transparent;
 }
