@@ -1,0 +1,20 @@
+.bet-control{flex-wrap:wrap}.bet-control input{min-width:50px}.quick-bets{display:flex;width:100%;gap:8px}.quick-bets button{flex:1;border:1px solid #927b45;border-radius:8px;background:#163c2b;color:#efdaa3;padding:7px;cursor:pointer}.ready-button,.leave-button{position:absolute;z-index:40;left:50%;transform:translateX(-50%);border:1px solid #d8b86b;border-radius:12px;padding:14px;background:#1d4b32;color:#ffe4a3;cursor:pointer}.ready-button{bottom:6%}.leave-button{bottom:1%;font-size:11px;padding:8px}.ready-button[hidden],.leave-button[hidden]{display:none}.payout-token{position:absolute;z-index:45;color:#e6bc4f;font-size:38px;pointer-events:none}.waiting-room .actions,.waiting-room .bet-control{visibility:hidden}.seat-label b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.seat .mini-hole.online-backs{z-index:10;left:50%;top:1cqw}.seat-bet{pointer-events:none}
+@media(max-width:700px) and (orientation:portrait){
+ body{display:block}.table-page{width:100vw;height:calc(100dvh - 160px);min-height:330px;overflow:visible}.table-art{object-fit:fill;transform:scale(.96)}
+ .seat-1{top:13%}.seat-2,.seat-6{top:31%}.seat-3,.seat-5{top:66%}
+ .community{top:41%;gap:1cqw}.community .card{width:10cqw;height:14cqw;font-size:4.4cqw}
+ .pot{top:56%;min-width:28cqw}.pot-value{font-size:5cqw}
+ .hero{top:87%;width:29cqw}.hero-avatar{width:16cqw;height:16cqw;margin:-17.5cqw auto .5cqw}.hero-name{font-size:3cqw}.hero-stack{font-size:3.5cqw}
+ .hole{top:76%;left:50%;z-index:21}.hole .card{width:12cqw;height:16.5cqw;font-size:5cqw}
+ .turn-timer{top:80%;left:72%;width:9cqw;height:9cqw;font-size:4cqw}
+ .status{top:96%;font-size:2.5cqw;max-width:90vw;width:max-content;min-width:0;padding:5px 9px}
+ .actions{position:fixed;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));gap:5px}.action{height:48px;font-size:12px;letter-spacing:0}
+ .bet-control{position:fixed;left:8px;right:8px;bottom:64px;width:auto;padding:6px 8px;display:grid;grid-template-columns:76px minmax(0,1fr) 64px;gap:4px;min-height:84px}
+ .bet-control.show{display:grid}.bet-control label{font-size:11px;min-width:0}.bet-control input{height:30px;width:100%;min-width:0}.allin-btn{min-height:32px;padding:5px;font-size:11px}.quick-bets{grid-column:1/-1;gap:8px}.quick-bets button{font-size:11px;min-height:30px;padding:4px}
+ .sound-toggle,.settings-toggle{width:32px;height:32px;bottom:auto;top:10px;font-size:16px;right:auto}.sound-toggle{left:100px}.settings-toggle{left:62px}.game-settings{top:45px;bottom:auto;font-size:12px}
+ .seat .mini-hole,.seat .mini-hole.online-backs{top:1cqw;left:50%;z-index:15;transform:translateX(-50%)}.mini-card{width:5.8cqw;height:8cqw;font-size:2.6cqw}
+ .seat-bet{font-size:2.7cqw}.seat-1 .seat-bet{top:25cqw}.seat-2 .seat-bet,.seat-3 .seat-bet{left:-12%;top:18cqw}.seat-5 .seat-bet,.seat-6 .seat-bet{left:112%;top:18cqw}.hero .seat-bet{left:0;top:-7cqw}
+ .poker-chip{font-size:2cqw;width:4.8cqw;height:4.8cqw}.pot-chip-pile{left:16%;top:56%;width:16cqw}.chip-25,.chip-1{background:#d6c997;color:#152b22}
+ .ready-button{position:fixed;bottom:85px;width:72%;min-height:48px}.leave-button{position:fixed;bottom:30px;width:72%;min-height:40px}.new-hand{position:fixed;bottom:90px;z-index:42}.hand-result{top:47%;max-height:48%;overflow-y:auto;font-size:3.3cqw}.win-badge{left:0;top:0;font-size:3cqw}.hero .win-badge{left:100%;top:0;font-size:3cqw}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
