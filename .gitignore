@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.npm-cache*/
+playwright-report/
+test-results/
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+storage-state*.json
+*.session.json

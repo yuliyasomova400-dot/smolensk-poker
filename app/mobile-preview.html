@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Покер — мобильный просмотр</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#071b14;color:#eadba6;font-family:Arial,sans-serif}header{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;padding:12px}button,select{background:#123c2b;color:#eadba6;border:1px solid #a28b53;border-radius:8px;padding:8px;cursor:pointer}main{position:relative;margin:0 auto}#phone{position:absolute;top:0;left:0;transform-origin:top left;width:390px;height:844px;background:#061b13;box-shadow:0 0 0 2px #a28b53;border-radius:18px;overflow:hidden}iframe{display:block;border:0;width:100%;height:100%;background:#061b13}footer{text-align:center;padding:12px;font-size:12px;color:#a8b9af}
+</style>
+</head>
+<body>
+<header><span>Мобильный просмотр</span><select id="size" aria-label="Размер экрана"><option value="390,844">390 × 844</option><option value="360,800">360 × 800</option><option value="430,932">430 × 932</option></select><button id="home">Главная</button><button id="reload">Обновить</button></header>
+<main id="stage"><div id="phone"><iframe id="site" src="./play.html" title="Мобильная версия Смоленского покера"></iframe></div></main>
+<footer>Размер экрана телефона · сессия входа общая с другими вкладками сайта</footer>
+<script>
+const stage=document.getElementById('stage'),phone=document.getElementById('phone'),site=document.getElementById('site'),size=document.getElementById('size');
+function fit(){const [w,h]=size.value.split(',').map(Number),space=Math.max(120,innerHeight-document.querySelector('header').offsetHeight-document.querySelector('footer').offsetHeight-12),scale=Math.min(1,Math.max(100,innerWidth-24)/w,space/h);phone.style.width=w+'px';phone.style.height=h+'px';phone.style.transform=`scale(${scale})`;stage.style.width=w*scale+'px';stage.style.height=h*scale+'px'}
+size.addEventListener('change',fit);window.addEventListener('resize',fit);document.getElementById('home').onclick=()=>{site.src='./index.html'};document.getElementById('reload').onclick=()=>site.contentWindow.location.reload();fit();
+</script>
+</body>
+</html>
